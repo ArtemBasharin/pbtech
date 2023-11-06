@@ -1,26 +1,65 @@
 @import url(./vendor/normalize.css);
 @import url(cards.css);
+@import url(socials.css);
+@import url(icons.css);
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-.container_footer {
-  position: relative;
-  margin-top: 20px;
-  height: 50px;
+.page {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  height: 100vh;
 }
 
+.container_header {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 30px; */
+  height: 80px;
+}
+
+.header_group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* justify-content: space-between; */
+
+  /* gap: 15px; */
+}
 .logo {
+  position: relative;
   height: 50px;
   width: 70px;
-  margin: auto;
+  margin-left: 30px;
 }
+.page-content {
+  position: relative;
+  max-width: 1600px;
+  display: grid;
+  grid-gap: 10px;
+  margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .text_footer {
   text-align: center;
   font-size: 10px;

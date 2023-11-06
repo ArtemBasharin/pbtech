@@ -20,39 +20,21 @@ body {
   place-items: center;
 } */
 
-.page-content {
-  display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
-  max-width: 1900px;
-  margin: 50px auto;
-  font-family: var(--font-sans);
-}
-@media (min-width: 600px) {
-  .page-content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 800px) {
-  .page-content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .card {
   position: relative;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   padding: 1rem;
-  max-width: 800px;
-  height: 500px;
+  max-width: 1000px;
+  max-height: 1000px;
   text-align: center;
   color: whitesmoke;
   background-color: whitesmoke;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
     0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
     0 16px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 @media (min-width: 600px) {
   .card {
@@ -165,12 +147,12 @@ body {
   text-transform: uppercase;
   color: white;
   text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   border: none;
   border-radius: 15px;
 }
 .btn:hover {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 1);
 }
 .btn:focus {
   outline: 1px dashed yellow;
