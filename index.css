@@ -29,13 +29,6 @@ body {
   height: 100vh;
 }
 
-@media (orientation: portrait) {
-  .page {
-    justify-content: center;
-    max-height: 100vh;
-  }
-}
-
 .container_header {
   width: 100%;
   position: relative;
@@ -78,8 +71,16 @@ body {
 }
 
 @media (orientation: portrait) {
+  .page {
+    justify-content: center;
+    max-height: 100vh;
+  }
   .page-content {
     grid-template-columns: 1fr;
+  }
+  .container_header {
+    width: calc(100vw - 60px);
+    margin: 0 30px;
   }
 }
 
