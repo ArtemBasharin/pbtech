@@ -10,16 +10,6 @@
   box-sizing: border-box;
 }
 
-/* html,
-body {
-  height: 100%;
-}
-
-body {
-  display: grid;
-  place-items: center;
-} */
-
 .card {
   position: relative;
   display: flex;
@@ -38,9 +28,17 @@ body {
 }
 @media (min-width: 600px) {
   .card {
-    height: 400px;
+    max-width: 100%;
+    margin: 0 40px;
   }
 }
+
+@media (orientation: portrait) {
+  .buttons {
+    display: none;
+  }
+}
+
 .card:before {
   content: "";
   position: absolute;
