@@ -73,7 +73,7 @@ body {
 @media (orientation: portrait) {
   .page {
     justify-content: center;
-    max-height: 100vh;
+    max-height: 90vh;
   }
   .page-content {
     grid-template-columns: 1fr;
