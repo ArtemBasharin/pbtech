@@ -4,8 +4,6 @@
   align-items: flex-end;
   overflow: hidden;
   padding: 1rem;
-  /* max-width: 1000px; */
-
   max-height: 1000px;
   text-align: center;
   color: whitesmoke;
@@ -15,12 +13,6 @@
     0 16px 16px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
-/* @media (min-width: 600px) {
-  .card {
-    max-width: 100%;
-    margin: 0 40px;
-  }
-} */
 
 @media (orientation: portrait) {
   .buttons {
@@ -44,6 +36,7 @@
   transition: transform calc(var(--d) * 1.5) var(--e);
   pointer-events: none;
 }
+
 .card:after {
   content: "";
   display: block;

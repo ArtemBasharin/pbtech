@@ -1,9 +1,10 @@
 @import url(./vendor/normalize.css);
-@import url(cards.css);
+@import url(main.css);
+@import url(header.css);
 @import url(socials.css);
-@import url(icons.css);
-
+@import url(cards.css);
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
@@ -19,6 +20,19 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+li {
+  list-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -26,68 +40,5 @@ body {
   justify-content: center;
   max-width: 1600px;
   margin: 0 auto;
-  height: 100vh;
-}
-
-.container_header {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* gap: 30px; */
-  height: 80px;
-}
-
-.header_group {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* justify-content: space-between; */
-
-  /* gap: 15px; */
-}
-.logo {
-  position: relative;
-  height: 50px;
-  width: 70px;
-  margin-left: 10px;
-}
-.page-content {
-  position: relative;
-  max-width: 1600px;
-  display: grid;
-  grid-gap: 10px;
-  margin: 0 auto;
-  height: 80vh;
-}
-
-@media (min-width: 800px) {
-  .page-content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (orientation: portrait) {
-  .page {
-    justify-content: center;
-    max-height: 90vh;
-  }
-  .page-content {
-    grid-template-columns: 1fr;
-  }
-  .container_header {
-    width: calc(100vw - 60px);
-    margin: 0 30px;
-  }
-}
-
-.text_footer {
-  text-align: center;
-  font-size: 10px;
-  color: #585858;
-  height: 20px;
-  margin: auto;
+  height: 90vh;
 }
