@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: space-between;
   /* gap: 30px; */
-  height: 80px;
+  height: 70px;
+  margin-top: 20px;
 }
 
 .header_group {
@@ -56,7 +57,7 @@
 /* Style 1 */
 .btn-1:hover,
 .btn-1:focus {
-  background-color: #313131;
+  background-color: #264796;
 }
 
 .btn0 {
@@ -65,6 +66,7 @@
   text-align: center;
   font-weight: 500;
   border-radius: 20px;
+  background-color: #d3d3d3;
 }
 
 @media (orientation: portrait) {

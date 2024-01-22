@@ -6,7 +6,7 @@
 }
 
 .wrapper .icon {
-  background-color: rgb(255, 255, 255);
+  background-color: inherit;
   color: #666;
   opacity: 1;
   border-radius: 50%;
