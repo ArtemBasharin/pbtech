@@ -22,8 +22,8 @@
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: rgb(255, 255, 255);
-  height: calc(100vh - 100px);
-  height: var(--vh, 90vh);
+  /* height: calc(100vh - 100px); */
+  height: var(--vh, 80vh);
 }
 
 li {
