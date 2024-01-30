@@ -38,10 +38,6 @@
 }
 
 @media (orientation: portrait) {
-  .buttons {
-    display: none;
-  }
-
   .bg_plant {
     background-image: url("./images/bg_industrial_horizontal.png");
   }
