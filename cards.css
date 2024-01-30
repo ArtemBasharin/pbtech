@@ -65,13 +65,13 @@
 .title {
   color: white;
   text-shadow: 0px 0px 3px rgb(0, 0, 0);
-  font-size: 2.2vh;
+  font-size: 1.3vw;
 }
 
 .btn {
   cursor: pointer;
   padding: 0.8rem 1rem 0.7rem 1rem;
-  font-size: 2vh;
+  font-size: 1vw;
   font-weight: bold;
   letter-spacing: 0.025rem;
   text-transform: uppercase;
@@ -83,7 +83,7 @@
 
 @media (orientation: portrait) {
   .title {
-    font-size: 5vw;
+    font-size: 4vw;
   }
 
   .btn {
