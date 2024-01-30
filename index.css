@@ -23,7 +23,8 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: rgb(255, 255, 255);
   /* height: calc(100vh - 100px); */
-  height: var(--vh, 80vh);
+  height: var(--vh, 100vh);
+  width: var(--vw, 100vw);
 }
 
 li {
@@ -66,6 +67,8 @@ a {
 
 @media (orientation: portrait) {
   .page {
+    position: relative;
+
     overflow-y: hidden;
     overflow-x: hidden;
     width: 100vw;
