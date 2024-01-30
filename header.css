@@ -4,9 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 30px; */
+  gap: 10px;
   height: 70px;
-  margin-top: 20px;
+  margin: 10px 0;
 }
 
 .header_group {
@@ -71,7 +71,7 @@
 
 @media (orientation: portrait) {
   .container_header {
-    width: calc(100vw - 60px);
-    margin: 0 30px;
+    width: 100%;
+    padding: 0 10px;
   }
 }

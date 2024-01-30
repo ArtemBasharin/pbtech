@@ -15,6 +15,10 @@
   background-size: cover;
 }
 
+/* .card:hover {
+  filter: blur(2px); /* Размытие контура изображения 
+} */
+
 .bg_plant {
   background-image: url("./images/bg_plant_vertical_trspr.png");
 }
@@ -26,14 +30,36 @@
   background-image: url("./images/bg_commercial_vertical_trnspr.png");
 }
 
+.bg_design {
+  background-image: url("./images/bg_indoor_vertical.png");
+}
+
+.bg_hiring {
+  background-image: url("./images/bg_hiring_vertical.png");
+}
+
 @media (orientation: portrait) {
   .buttons {
     display: none;
   }
-  .card {
-    /* height: max-content; */
-    /* width: 100%; */
-    margin: 30px 0;
+
+  .bg_plant {
+    background-image: url("./images/bg_industrial_horizontal.png");
+  }
+  .bg_living {
+    background-image: url("./images/bg_living_house_sketch.png");
+  }
+
+  .bg_commercial {
+    background-image: url("./images/bg_commercial_horizontal.png");
+  }
+
+  .bg_design {
+    background-image: url("./images/bg_design_horizontal.png");
+  }
+
+  .bg_hiring {
+    background-image: url("./images/bg_hiring_horizontal.png");
   }
 }
 
