@@ -62,7 +62,7 @@ a {
 
 @media (orientation: portrait) {
   .page {
-    height: var(--vh, 90vh);
+    height: var(--vh, 95vh);
     width: var(--vw, 100vw);
     display: flex;
     align-items: center;
