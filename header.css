@@ -78,4 +78,10 @@
   .btn0 {
     font-size: 1.5vw;
   }
+
+  .logo {
+    width: 50px;
+    height: auto;
+    margin-left: 0;
+  }
 }
