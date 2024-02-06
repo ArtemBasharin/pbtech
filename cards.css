@@ -19,18 +19,18 @@
 } */
 
 .bg_plant {
-  background-image: url("./images/bg_plant_vertical_trspr.png");
+  background-image: url("./images/bg_plant_plain_vertical.png");
 }
 .bg_living {
-  background-image: url("./images/bg_living_house_vertical2_trspr.png");
+  background-image: url("./images/bg_living_house_plain_vertical.png");
 }
 
 .bg_commercial {
-  background-image: url("./images/bg_commercial_vertical_trnspr.png");
+  background-image: url("./images/bg_commercial_plain_vertical.png");
 }
 
 .bg_design {
-  background-image: url("./images/bg_indoor_vertical.png");
+  background-image: url("./images/bg_indoor_plain_vertical.png");
 }
 
 .bg_hiring {
