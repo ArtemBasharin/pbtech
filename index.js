@@ -23,4 +23,17 @@ window.addEventListener("load", function () {
     hideAddressBar();
   }
 });
+
 window.addEventListener("orientationchange", hideAddressBar);
+
+// const btnElements = document.querySelectorAll(".btn_jittery");
+
+// btnElements.forEach((btn, index) => {
+//   const randomDelay = index * 0.5 + "s"; // Генерация разных задержек для разных элементов
+//   btn.style.setProperty("--random-delay", randomDelay);
+// });
+
+for (let i = 1; i < 5; i++) {
+  const btn = document.querySelector(`.btn_jittery${i}`);
+  btn.style.setProperty(`--random-delay${i}`, `${Math.random() * 12}s`);
+}
