@@ -37,3 +37,4 @@ for (let i = 1; i < 5; i++) {
   const btn = document.querySelector(`.btn_jittery${i}`);
   btn.style.setProperty(`--random-delay${i}`, `${Math.random() * 12}s`);
 }
+
