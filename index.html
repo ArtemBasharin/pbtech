@@ -47,7 +47,13 @@
     </header>
 
     <main class="page-content">
-      <div class="card bg_plant" id="caption">
+      <div class="card animation-container" id="caption">
+        <div
+          class="liquid bg_plant"
+          data-first="./images/bg_industry_vertical.svg"
+          data-second="./images/bg_industry_vertical2.svg"
+          data-displacement="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLZ1R3IndRPpHLRYWHQufxPM_T1SH51SMzlQ&usqp=CAU"
+        ></div>
         <div class="button_container btn_jittery btn_jittery1">
           <button class="title">Промышленные<br />объекты</button>
           <div class="button_pointer"></div>
@@ -55,18 +61,7 @@
       </div>
 
       <div class="card" id="caption">
-        <img
-          class="bg_living"
-          id="living_1"
-          src="./images/svg/bg_living_horiz.svg"
-          alt="living"
-        />
-        <img
-          class="bg_living"
-          id="living_2"
-          src="./images/svg/bg_living_horiz2.svg"
-          alt="living"
-        />
+        <div class="bg_living img1 img"></div>
         <div class="button_container btn_jittery btn_jittery2">
           <button id="play" class="title">Жилые<br />здания</button>
           <!-- <button class="btn">Подробнее</button> -->
@@ -102,6 +97,6 @@
         ООО "Проектное бюро Технология" &#169; 2024
       </div>
     </footer>
+    <script type="module" src="/index.js"></script>
   </body>
-  <script type="module" src="index.js"></script>
 </html>
