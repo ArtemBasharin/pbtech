@@ -1,102 +1,13 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <title>PBTeh</title>
-    <link rel="stylesheet" href="index.css" />
-    <script
-      src="https://kit.fontawesome.com/f05c8837f2.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
   </head>
-  <body class="page">
-    <header class="container_header">
-      <div class="header_group">
-        <img class="logo" src="./images/pblogo.png" />
-        <ul class="buttons">
-          <li class="btn0 btn-1"><a href="#0">Промышленные объекты</a></li>
-          <li class="btn0 btn-1"><a href="#0">Жилые здания</a></li>
-          <li class="btn0 btn-1"><a href="#0">Торговые комплексы</a></li>
-          <li class="btn0 btn-1"><a href="#0">Открытые вакансии</a></li>
-        </ul>
-      </div>
-      <div class="wrapper">
-        <div class="icon facebook btn btn__secondary">
-          <span><i class="fab fa-vk"></i></span>
-        </div>
-        <div class="icon twitter btn btn__secondary">
-          <span><i class="fab fa-telegram"></i></span>
-        </div>
-        <div class="icon instagram btn btn__secondary">
-          <span><i class="fab fa-instagram"></i></span>
-        </div>
-        <div class="icon linkedin btn btn__secondary">
-          <span><i class="fab fa-linkedin"></i></span>
-        </div>
-        <div class="icon youtube btn btn__secondary">
-          <span><i class="fab fa-youtube"></i></span>
-        </div>
-        <div class="icon whatsapp btn btn__secondary">
-          <span><i class="fab fa-whatsapp"></i></span>
-        </div>
-      </div>
-    </header>
-
-    <main class="page-content">
-      <div class="card animation-container" id="caption">
-        <div
-          class="liquid bg_plant"
-          data-first="./images/bg_industry_vertical.svg"
-          data-second="./images/bg_industry_vertical2.svg"
-          data-displacement="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLZ1R3IndRPpHLRYWHQufxPM_T1SH51SMzlQ&usqp=CAU"
-        ></div>
-        <div class="button_container btn_jittery btn_jittery1">
-          <button class="title">Промышленные<br />объекты</button>
-          <div class="button_pointer"></div>
-        </div>
-      </div>
-
-      <div class="card" id="caption">
-        <div class="bg_living img1 img"></div>
-        <div class="button_container btn_jittery btn_jittery2">
-          <button id="play" class="title">Жилые<br />здания</button>
-          <!-- <button class="btn">Подробнее</button> -->
-          <div class="button_pointer"></div>
-        </div>
-      </div>
-
-      <div class="card bg_commercial" id="caption">
-        <button class="title btn_jittery btn_jittery3">
-          Торговые<br />комплексы
-        </button>
-        <!-- <button class="btn">Подробнее</button> -->
-      </div>
-
-      <div class="card bg_design" id="caption">
-        <button class="title btn_jittery btn_jittery4">
-          Дизайн<br />помещений
-        </button>
-        <!-- <button class="btn">Подробнее</button> -->
-      </div>
-
-      <div class="card bg_hiring" id="caption">
-        <button class="title btn_jittery btn_jittery5">
-          Открытые<br />вакансии
-        </button>
-        <!-- <button class="btn">Подробнее</button> -->
-      </div>
-    </main>
-
-    <footer class="footer">
-      <!-- <img class="logo logo_footer" src="./images/pblogo.png" /> -->
-      <div class="footer_title">
-        ООО "Проектное бюро Технология" &#169; 2024
-      </div>
-    </footer>
-    <script type="module" src="/index.js"></script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
