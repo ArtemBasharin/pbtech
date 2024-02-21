@@ -1,4 +1,4 @@
-import "./App.css";
+import MorphAnimation from "./svgAnimation";
 
 function App() {
   window.addEventListener("resize", () => {
@@ -29,21 +29,13 @@ function App() {
 
   window.addEventListener("orientationchange", hideAddressBar);
 
-  // const btnElements = document.querySelectorAll(".btn_jittery");
-
-  // btnElements.forEach((btn, index) => {
-  //   const randomDelay = index * 0.5 + "s"; // Генерация разных задержек для разных элементов
-  //   btn.style.setProperty("--random-delay", randomDelay);
-  // });
-
-  for (let i = 1; i < 5; i++) {
-    const btn = document.querySelector(`.btn_jittery${i}`);
-    btn.style.setProperty(`--random-delay${i}`, `${Math.random() * 12}s`);
-  }
+  const getRandomDelay = () => {
+    return Math.random() * 100 + "s";
+  };
 
   return (
     <>
-      <body className='page'>
+      <div className='page'>
         <header className='container_header'>
           <div className='header_group'>
             <img className='logo' src='./images/pblogo.png' />
@@ -97,38 +89,35 @@ function App() {
         </header>
 
         <main className='page-content'>
-          <div className='card animation-container' id='caption'>
-            <div
-              className='liquid bg_plant'
-              data-first='./images/bg_industry_vertical.svg'
-              data-second='./images/bg_industry_vertical2.svg'
-              data-displacement='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLZ1R3IndRPpHLRYWHQufxPM_T1SH51SMzlQ&usqp=CAU'
-            ></div>
-            <div className='button_container btn_jittery btn_jittery1'>
-              <button className='title'>
-                Промышленные
-                <br />
-                объекты
-              </button>
-              <div className='button_pointer'></div>
-            </div>
+          <div className='card bg_plant' id='caption'>
+            <MorphAnimation />
+            <button
+              className='title btn_jittery'
+              style={{ animationDelay: getRandomDelay() }}
+            >
+              Промышленные
+              <br />
+              объекты
+            </button>
           </div>
 
-          <div className='card' id='caption'>
-            <div className='bg_living img1 img'></div>
-            <div className='button_container btn_jittery btn_jittery2'>
-              <button id='play' className='title'>
-                Жилые
-                <br />
-                здания
-              </button>
-              {/* <!-- <button className="btn">Подробнее</button> --> */}
-              <div className='button_pointer'></div>
-            </div>
+          <div className='card bg_living' id='caption'>
+            <button
+              className='title btn_jittery '
+              style={{ animationDelay: getRandomDelay() }}
+            >
+              Жилые
+              <br />
+              здания
+            </button>
+            {/* <!-- <button className="btn">Подробнее</button> --> */}
           </div>
 
           <div className='card bg_commercial' id='caption'>
-            <button className='title btn_jittery btn_jittery3'>
+            <button
+              className='title btn_jittery '
+              style={{ animationDelay: getRandomDelay() }}
+            >
               Торговые
               <br />
               комплексы
@@ -137,7 +126,10 @@ function App() {
           </div>
 
           <div className='card bg_design' id='caption'>
-            <button className='title btn_jittery btn_jittery4'>
+            <button
+              className='title btn_jittery '
+              style={{ animationDelay: getRandomDelay() }}
+            >
               Дизайн
               <br />
               помещений
@@ -146,7 +138,10 @@ function App() {
           </div>
 
           <div className='card bg_hiring' id='caption'>
-            <button className='title btn_jittery btn_jittery5'>
+            <button
+              className='title btn_jittery '
+              style={{ animationDelay: getRandomDelay() }}
+            >
               Открытые
               <br />
               вакансии
@@ -161,7 +156,7 @@ function App() {
             ООО `&quot;`Проектное бюро Технология`&quot;` &#169; 2024
           </div>
         </footer>
-      </body>
+      </div>
     </>
   );
 }

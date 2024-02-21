@@ -1,26 +1,7 @@
 .btn_jittery {
+  cursor: pointer;
   -webkit-animation: jittery 6s infinite;
   animation: jittery 6s infinite;
-}
-
-.btn_jittery1 {
-  animation-delay: var(--random-delay1);
-}
-
-.btn_jittery2 {
-  animation-delay: var(--random-delay2);
-}
-
-.btn_jittery3 {
-  animation-delay: var(--random-delay3);
-}
-
-.btn_jittery4 {
-  animation-delay: var(--random-delay4);
-}
-
-.btn_jittery5 {
-  animation-delay: var(--random-delay5);
 }
 
 @-webkit-keyframes jittery {

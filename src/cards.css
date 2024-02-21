@@ -19,39 +19,12 @@
 } */
 
 .bg_plant {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  /* background-image: url("./images/bg_plant_plain_vertical.png"); */
+  background-image: url("../images/bg_industry_vertical.svg");
 }
-.bg_living {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
 
+.bg_living {
   background-image: url("./images/bg_living_house_plain_vertical.png");
 }
-
-.animation-container {
-  position: relative;
-  animation: liquid-transition 3s ease-in-out infinite;
-}
-@keyframes liquid-transition {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.5);
-  }
-}
-/* 
-.animation-container object {
-  animation: liquid-transition 3s ease-in-out infinite;
-} */
 
 .bg_commercial {
   background-image: url("./images/bg_commercial_plain_vertical.png");
