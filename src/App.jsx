@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   window.addEventListener("resize", () => {
     let vh = window.innerHeight / 100;
@@ -30,6 +32,26 @@ function App() {
   const getRandomDelay = () => {
     return Math.random() * 100 + "s";
   };
+
+  const [animationProp, setAnimationProp] = useState(null);
+
+  function handleMouseOver() {
+    setAnimationProp({
+      opacity: 1,
+      mask: 'url("../images/mask.png")',
+      maskSize: "3000% 100%",
+      animation: "mask-playzero 2s steps(29) forwards",
+    });
+  }
+
+  function handleMouseLeave() {
+    setAnimationProp({
+      opacity: 1,
+      mask: 'url("../images/mask.png")',
+      maskSize: "3000% 100%",
+      animation: "reverse-playzero 2s steps(29) reverse forwards",
+    });
+  }
 
   return (
     <>
@@ -89,7 +111,12 @@ function App() {
         <main className='page-content'>
           <div className='card'>
             <div className='bg_plant1'></div>
-            <div className='bg_plant2'></div>
+            <div
+              className='bg_plant2'
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              style={animationProp}
+            ></div>
             <button
               className='title btn_jittery'
               style={{ animationDelay: getRandomDelay() }}

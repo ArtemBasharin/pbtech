@@ -50,14 +50,14 @@
   left: 0;
 }
 
-.bg_plant2:hover {
-  opacity: 1; /* Показываем изображение при наведении */
+/* .bg_plant2:hover {
+  opacity: 1; 
   mask: url("../images/mask.png");
   mask-size: 3000% 100%;
   animation:
     mask-playzero 2s steps(29) forwards,
-    reverse-playzero 2s steps(29) reverse forwards;
-}
+  } */
+/* reverse-playzero 2s steps(29) reverse forwards; */
 
 @keyframes mask-playzero {
   from {
