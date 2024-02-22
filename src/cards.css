@@ -18,8 +18,63 @@
   filter: blur(2px); /* Размытие контура изображения 
 } */
 
-.bg_plant {
-  background-image: url("../images/bg_industry_vertical.svg");
+.bg_plant1 {
+  background: url("../images/bg_industry_vertical.svg") no-repeat left top;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.bg_plant2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0; /* Скрываем изначально изображение без маски */
+  mask: url("../images/mask.png");
+  mask-size: 3000% 100%;
+}
+
+.bg_plant2::before {
+  content: "";
+  background: url("../images/bg_industry_vertical2.svg") no-repeat left top;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bg_plant2:hover {
+  opacity: 1; /* Показываем изображение при наведении */
+  mask: url("../images/mask.png");
+  mask-size: 3000% 100%;
+  animation:
+    mask-playzero 2s steps(29) forwards,
+    reverse-playzero 2s steps(29) reverse forwards;
+}
+
+@keyframes mask-playzero {
+  from {
+    mask-position: 0 0;
+  }
+  to {
+    mask-position: 100% 0;
+  }
+}
+
+@keyframes reverse-playzero {
+  from {
+    mask-position: 100% 0;
+  }
+  to {
+    mask-position: 0 0;
+  }
 }
 
 .bg_living {

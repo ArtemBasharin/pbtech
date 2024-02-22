@@ -1,5 +1,3 @@
-import MorphAnimation from "./svgAnimation";
-
 function App() {
   window.addEventListener("resize", () => {
     let vh = window.innerHeight / 100;
@@ -89,8 +87,9 @@ function App() {
         </header>
 
         <main className='page-content'>
-          <div className='card bg_plant' id='caption'>
-            <MorphAnimation />
+          <div className='card'>
+            <div className='bg_plant1'></div>
+            <div className='bg_plant2'></div>
             <button
               className='title btn_jittery'
               style={{ animationDelay: getRandomDelay() }}
@@ -101,7 +100,7 @@ function App() {
             </button>
           </div>
 
-          <div className='card bg_living' id='caption'>
+          <div className='card bg_living'>
             <button
               className='title btn_jittery '
               style={{ animationDelay: getRandomDelay() }}
@@ -113,7 +112,7 @@ function App() {
             {/* <!-- <button className="btn">Подробнее</button> --> */}
           </div>
 
-          <div className='card bg_commercial' id='caption'>
+          <div className='card bg_commercial'>
             <button
               className='title btn_jittery '
               style={{ animationDelay: getRandomDelay() }}
@@ -125,7 +124,7 @@ function App() {
             {/* <!-- <button className="btn">Подробнее</button> --> */}
           </div>
 
-          <div className='card bg_design' id='caption'>
+          <div className='card bg_design'>
             <button
               className='title btn_jittery '
               style={{ animationDelay: getRandomDelay() }}
@@ -137,7 +136,7 @@ function App() {
             {/* <!-- <button className="btn">Подробнее</button> --> */}
           </div>
 
-          <div className='card bg_hiring' id='caption'>
+          <div className='card bg_hiring'>
             <button
               className='title btn_jittery '
               style={{ animationDelay: getRandomDelay() }}
