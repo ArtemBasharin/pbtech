@@ -14,11 +14,30 @@
   background-size: cover;
 }
 
+.picture {
+  position: absolute;
+  height: 900px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-position: center center;
+}
+
+.picture:hover {
+  position: absolute;
+  height: 900px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: "cover";
+}
+
 /* .card:hover {
   filter: blur(2px); /* Размытие контура изображения 
 } */
 
-.bg_plant1 {
+/* .bg_plant1 {
   background: url("../images/bg_industry_vertical.svg") no-repeat left top;
   background-size: cover;
   height: 100%;
@@ -34,7 +53,7 @@
   width: 100%;
   left: 0;
   top: 0;
-  opacity: 0; /* Скрываем изначально изображение без маски */
+  opacity: 0; 
   mask: url("../images/mask.png");
   mask-size: 3000% 100%;
 }
@@ -48,7 +67,7 @@
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
 /* .bg_plant2:hover {
   opacity: 1; 
