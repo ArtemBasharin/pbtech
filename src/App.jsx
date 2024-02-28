@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "'./images/pblogo.png'";
+import logo from "../images/pblogo.png";
 
 function App() {
   window.addEventListener("resize", () => {
