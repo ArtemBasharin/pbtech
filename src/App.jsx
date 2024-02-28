@@ -1,6 +1,17 @@
-import { useState } from "react";
 import logo from "../images/pblogo.png";
 import industrial from "../images/bg_plant_plain_vertical.png";
+import living from "../images/bg_living_vertical.png";
+import commercial from "../images/bg_commercial_vertical.png";
+import design from "../images/bg_design_vertical.png";
+import hiring from "../images/bg_hiring_vertical.png";
+
+const elems = [
+  { pic: industrial, prop: "industrial", title: "Промышленные объекты" },
+  { pic: living, prop: "living", title: "Жилые здания" },
+  { pic: commercial, prop: "commercial", title: "Торговые комплексы" },
+  { pic: design, prop: "design", title: "Дизайн помещений" },
+  { pic: hiring, prop: "hiring", title: "Открытые вакансии" },
+];
 
 function App() {
   window.addEventListener("resize", () => {
@@ -31,51 +42,34 @@ function App() {
 
   window.addEventListener("orientationchange", hideAddressBar);
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const imagesStore = {
-    industrial: [
-      "../images/bg_plant_plain_vertical.png",
-      "../images/bg_plant_plain_vertical2.png",
-    ],
-    commercial: ["./images/empty.svg", "./images/bg_commercial_vertical2.png"],
-    living: [
-      "../images/bg_living_house_vertical.png",
-      "../images/bg_living_house_vertical2.png",
-    ],
-    design: [
-      "../images/bg_design_vertical.png",
-      "../images/bg_design_vertical2.png",
-    ],
-    hiring: [
-      "./images/bg_hiring_vertical.png",
-      "./images/bg_design_vertical2.png",
-    ],
-  };
+  let ctaButton = document.querySelector(".btn_jittery");
+  console.log(ctaButton);
 
   const handleMouseOver = (prop) => {
-    setCurrentImageIndex((currentImageIndex + 1) % imagesStore[prop].length);
-    let imageSrc = imagesStore[prop][currentImageIndex];
+    const animatedButtons = document.querySelectorAll(".btn_jittery");
+    animatedButtons.forEach((el) => (el.style.animation = "none"));
 
     const selectedElement = document.getElementById(prop);
-
     if (selectedElement) {
-      selectedElement.src = "../images/empty.svg";
-      selectedElement.style.transition = "background-image 0.25s ease-in-out";
-      selectedElement.style.backgroundImage = `url(${imageSrc})`;
+      selectedElement.style.transition = "filter 0.8s ease-in-out";
+      selectedElement.style.filter = "blur(12px) saturate(0%) ";
     }
   };
 
-  const handleMouseOut = (prop) => {
-    setCurrentImageIndex((currentImageIndex + 1) % imagesStore[prop].length);
-    let imageSrc = imagesStore[prop][currentImageIndex];
+  const handleMouseOut = (e, prop) => {
+    if (!e.relatedTarget.contains(ctaButton)) {
+      const selectedElement = document.getElementById(prop);
 
-    const selectedElement = document.getElementById(prop);
+      if (selectedElement) {
+        selectedElement.style.transition = "filter 0.4s ease-in-out";
+        selectedElement.style.filter = "";
 
-    if (selectedElement) {
-      selectedElement.src = "../images/empty.svg";
-      selectedElement.style.transition = "background-image 0.25s ease-in-out";
-      selectedElement.style.backgroundImage = `url(${imageSrc})`;
+        const animatedButtons = document.querySelectorAll(".btn_jittery");
+        animatedButtons.forEach((el) => {
+          el.style.animation = "jittery 6s infinite";
+          el.style.animationDelay = `${5 + Math.random() * 10 + Math.random() * 10}s`;
+        });
+      }
     }
   };
 
@@ -106,95 +100,27 @@ function App() {
           </div>
         </header>
         <main className='page-content'>
-          <div className='card'>
-            <img
-              className='picture'
-              id='industrial'
-              src={industrial}
-              onMouseOver={() => handleMouseOver("industrial")}
-              onMouseOut={() => handleMouseOut("industrial")}
-            />
-            <button
-              className='title btn_jittery'
-              style={{ animationDelay: "15s" }}
-            >
-              Промышленные
-              <br />
-              объекты
-            </button>
-          </div>
-
-          <div className='card'>
-            <img
-              className='picture'
-              id='living'
-              src={`${imagesStore["living"][0]}`}
-              onMouseOver={() => handleMouseOver("living")}
-              onMouseOut={() => handleMouseOut("living")}
-            />
-            <button
-              className='title btn_jittery'
-              style={{ animationDelay: "5s" }}
-            >
-              Жилые
-              <br />
-              здания
-            </button>
-          </div>
-
-          <div className='card'>
-            <img
-              className='picture'
-              id='commercial'
-              src={`${imagesStore["commercial"][0]}`}
-              onMouseOver={() => handleMouseOver("commercial")}
-              onMouseOut={() => handleMouseOut("commercial")}
-            />
-            <button
-              className='title btn_jittery'
-              style={{ animationDelay: "18s" }}
-            >
-              Торговые
-              <br />
-              комплексы
-            </button>
-          </div>
-
-          <div className='card'>
-            <img
-              className='picture'
-              id='design'
-              src={`${imagesStore["design"][0]}`}
-              onMouseOver={() => handleMouseOver("design")}
-              onMouseOut={() => handleMouseOut("design")}
-            />
-            <button
-              className='title btn_jittery'
-              style={{ animationDelay: "8s" }}
-            >
-              Дизайн
-              <br />
-              помещений
-            </button>
-          </div>
-
-          <div className='card'>
-            <img
-              className='picture'
-              id='hiring'
-              src={`${imagesStore["hiring"][0]}`}
-              onMouseOver={() => handleMouseOver("hiring")}
-              onMouseOut={() => handleMouseOut("hiring")}
-            />
-            <button
-              className='title btn_jittery'
-              style={{ animationDelay: "12s" }}
-            >
-              Открытые
-              <br />
-              вакансии
-            </button>
-          </div>
+          {elems.map((el, index) => {
+            return (
+              <div className='card' key={index}>
+                <img className='card picture' id={el.prop} src={el.pic} />
+                <div
+                  className='btn_jittery title neon_container'
+                  onMouseOver={() => handleMouseOver(el.prop)}
+                  onMouseOut={(e) => handleMouseOut(e, el.prop)}
+                  style={{
+                    animationDelay: `${5 + Math.random() * 10 + Math.random() * 10}s`,
+                  }}
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  {el.title}
+                </div>
+              </div>
+            );
+          })}
         </main>
 
         <footer className='footer'>

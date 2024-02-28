@@ -5,6 +5,7 @@
 /* @import url('neumorfics.css'); */
 @import url("socials.css");
 @import url("buttonCTA.css");
+@import url("neonbutton.css");
 
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
 
@@ -30,10 +31,6 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-button {
-  border: none;
 }
 
 .page-content {
