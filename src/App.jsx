@@ -80,13 +80,13 @@ function App() {
           <div className='header_group'>
             <img className='logo' src={logo} />
             <ul className='buttons'>
-              <li className='btn0 btn-1'>
+              <li className='btn0 btn-1 neon_container'>
                 <a href='#0'>Где находимся</a>
               </li>
-              <li className='btn0 btn-1'>
+              <li className='btn0 btn-1 neon_container'>
                 <a href='#0'>Цены</a>
               </li>
-              <li className='btn0 btn-1'>
+              <li className='btn0 btn-1 neon_container'>
                 <a href='#0'>Контакты</a>
               </li>
             </ul>

@@ -2,6 +2,7 @@
 2.	LINK and BUTTON
 ************************************************/
 .neon_container {
+  width: auto;
   position: relative;
   display: inline-block;
   padding: 10px 15px;
@@ -21,12 +22,12 @@
 .neon_container:hover {
   color: #f7f7f7;
   background: #0077ff;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   border: none;
   box-shadow:
-    0 0 10px #0077ff,
-    0 0 40px #0077ff,
-    0 0 80px #0077ff;
+    0 0 10px var(--blue),
+    0 0 40px var(--blue),
+    0 0 80px var(--blue);
   transition-delay: 600ms;
 }
 
@@ -43,7 +44,7 @@
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #0077ff);
+  background: linear-gradient(90deg, transparent, var(--blue));
 }
 
 .neon_container:hover span:nth-child(1) {
@@ -59,7 +60,7 @@
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #0077ff);
+  background: linear-gradient(270deg, transparent, var(--blue));
 }
 
 .neon_container:hover span:nth-child(3) {
@@ -76,7 +77,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #0077ff);
+  background: linear-gradient(180deg, transparent, var(--blue));
 }
 
 .neon_container:hover span:nth-child(2) {
@@ -93,7 +94,7 @@
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #0077ff);
+  background: linear-gradient(360deg, transparent, var(--blue));
 }
 
 .neon_container:hover span:nth-child(4) {

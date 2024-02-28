@@ -60,7 +60,7 @@
 /* Style 1 */
 .btn-1:hover,
 .btn-1:focus {
-  background-color: #264796;
+  background-color: var(--blue);
 }
 
 .btn0 {
