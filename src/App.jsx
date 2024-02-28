@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "'./images/pblogo.png'";
 
 function App() {
   window.addEventListener("resize", () => {
@@ -29,35 +30,6 @@ function App() {
 
   window.addEventListener("orientationchange", hideAddressBar);
 
-  // const getRandomDelay = () => {
-  //       return Math.random() * 100 + "s";
-  // };
-
-  // const getRandomDelay = () => {
-  //   return Array.from({ length: 5 }, () => Math.random() * 100 + "s");
-  // };
-
-  // const randomDelaysArray = getRandomDelay();
-
-  // const [animationProp, setAnimationProp] = useState(null);
-
-  // function handleMouseOver() {
-  //   setAnimationProp({
-  //     opacity: 1,
-  //     mask: 'url("../images/mask.png")',
-  //     maskSize: "3000% 100%",
-  //     animation: "mask-playzero 2s steps(29) forwards",
-  //   });
-  // }
-
-  // function handleMouseLeave() {
-  //   setAnimationProp({
-  //     opacity: 1,
-  //     mask: 'url("../images/mask.png")',
-  //     maskSize: "3000% 100%",
-  //     animation: "reverse-playzero 2s steps(29) reverse forwards",
-  //   });
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const imagesStore = {
@@ -79,16 +51,6 @@ function App() {
       "./images/bg_design_vertical2.png",
     ],
   };
-
-  // const handleOnLoad = (prop) => {
-  //   const selectedElement = document.getElementById(prop);
-  //   let imageSrc = imagesStore[prop][0];
-  //   console.log(imageSrc);
-  //   if (selectedElement) {
-  //     // selectedElement.src = imagesStore[prop][0];
-  //     selectedElement.style.backgroundImage = `url(${imageSrc})`;
-  //   }
-  // };
 
   const handleMouseOver = (prop) => {
     setCurrentImageIndex((currentImageIndex + 1) % imagesStore[prop].length);
@@ -121,7 +83,7 @@ function App() {
       <div className='page'>
         <header className='container_header'>
           <div className='header_group'>
-            <img className='logo' src='./images/pblogo.png' />
+            <img className='logo' src={logo} />
             <ul className='buttons'>
               <li className='btn0 btn-1'>
                 <a href='#0'>Где находимся</a>
@@ -235,7 +197,6 @@ function App() {
         </main>
 
         <footer className='footer'>
-          {/* <!-- <img className="logo logo_footer" src="./images/pblogo.png" /> --> */}
           <div className='footer_title'>
             ООО &quot;Проектное бюро Технология&quot; &#169; 2024
           </div>

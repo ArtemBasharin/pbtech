@@ -27,22 +27,6 @@
   height: 50px;
   width: 70px;
   margin: 10px auto 10px 30px;
-  animation: neon2 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes neon2 {
-  from {
-    filter: drop-shadow(0 0 5px #fff), drop-shadow(0 0 8px #fff),
-      drop-shadow(0 0 12px #fff), drop-shadow(0 0 40px #228dff),
-      drop-shadow(0 0 70px #228dff), drop-shadow(0 0 80px #228dff),
-      drop-shadow(0 0 100px #228dff), drop-shadow(0 0 150px #228dff);
-  }
-  to {
-    filter: drop-shadow(0 0 2px #fff), drop-shadow(0 0 4px #fff),
-      drop-shadow(0 0 5px #fff), drop-shadow(0 0 20px #228dff),
-      drop-shadow(0 0 35px #228dff), drop-shadow(0 0 40px #228dff),
-      drop-shadow(0 0 50px #228dff), drop-shadow(0 0 75px #228dff);
-  }
 }
 
 .buttons {
