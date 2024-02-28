@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from "../images/pblogo.png";
+import industrial from "../images/bg_plant_plain_vertical.png";
 
 function App() {
   window.addEventListener("resize", () => {
@@ -34,17 +35,17 @@ function App() {
 
   const imagesStore = {
     industrial: [
-      "./images/bg_plant_plain_vertical.png",
-      "./images/bg_plant_plain_vertical2.png",
+      "../images/bg_plant_plain_vertical.png",
+      "../images/bg_plant_plain_vertical2.png",
     ],
     commercial: ["./images/empty.svg", "./images/bg_commercial_vertical2.png"],
     living: [
-      "./images/bg_living_house_vertical.png",
-      "./images/bg_living_house_vertical2.png",
+      "../images/bg_living_house_vertical.png",
+      "../images/bg_living_house_vertical2.png",
     ],
     design: [
-      "./images/bg_design_vertical.png",
-      "./images/bg_design_vertical2.png",
+      "../images/bg_design_vertical.png",
+      "../images/bg_design_vertical2.png",
     ],
     hiring: [
       "./images/bg_hiring_vertical.png",
@@ -59,7 +60,7 @@ function App() {
     const selectedElement = document.getElementById(prop);
 
     if (selectedElement) {
-      selectedElement.src = "./images/empty.svg";
+      selectedElement.src = "../images/empty.svg";
       selectedElement.style.transition = "background-image 0.25s ease-in-out";
       selectedElement.style.backgroundImage = `url(${imageSrc})`;
     }
@@ -72,7 +73,7 @@ function App() {
     const selectedElement = document.getElementById(prop);
 
     if (selectedElement) {
-      selectedElement.src = "./images/empty.svg";
+      selectedElement.src = "../images/empty.svg";
       selectedElement.style.transition = "background-image 0.25s ease-in-out";
       selectedElement.style.backgroundImage = `url(${imageSrc})`;
     }
@@ -109,7 +110,7 @@ function App() {
             <img
               className='picture'
               id='industrial'
-              src={`${imagesStore["industrial"][0]}`}
+              src={industrial}
               onMouseOver={() => handleMouseOver("industrial")}
               onMouseOut={() => handleMouseOut("industrial")}
             />
