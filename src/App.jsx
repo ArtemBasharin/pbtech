@@ -127,16 +127,13 @@ function App() {
             <img className='logo' src='./images/pblogo.png' />
             <ul className='buttons'>
               <li className='btn0 btn-1'>
-                <a href='#0'>Промышленные объекты</a>
+                <a href='#0'>Где находимся</a>
               </li>
               <li className='btn0 btn-1'>
-                <a href='#0'>Жилые здания</a>
+                <a href='#0'>Цены</a>
               </li>
               <li className='btn0 btn-1'>
-                <a href='#0'>Торговые комплексы</a>
-              </li>
-              <li className='btn0 btn-1'>
-                <a href='#0'>Открытые вакансии</a>
+                <a href='#0'>Контакты</a>
               </li>
             </ul>
           </div>
@@ -243,7 +240,7 @@ function App() {
         <footer className='footer'>
           {/* <!-- <img className="logo logo_footer" src="./images/pblogo.png" /> --> */}
           <div className='footer_title'>
-            ООО `&quot;`Проектное бюро Технология`&quot;` &#169; 2024
+            ООО &quot;Проектное бюро Технология&quot; &#169; 2024
           </div>
         </footer>
       </div>
