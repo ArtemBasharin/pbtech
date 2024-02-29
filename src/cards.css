@@ -14,13 +14,88 @@
   background-size: cover;
 }
 
+.picture {
+  position: absolute;
+  height: 900px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-position: center center;
+}
+
+.picture:hover {
+  position: absolute;
+  height: 900px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: "cover";
+}
+
 /* .card:hover {
   filter: blur(2px); /* Размытие контура изображения 
 } */
 
-.bg_plant {
-  background-image: url("./images/bg_plant_plain_vertical.png");
+/* .bg_plant1 {
+  background: url("../images/bg_industry_vertical.svg") no-repeat left top;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
+
+.bg_plant2 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0; 
+  mask: url("../images/mask.png");
+  mask-size: 3000% 100%;
+}
+
+.bg_plant2::before {
+  content: "";
+  background: url("../images/bg_industry_vertical2.svg") no-repeat left top;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+/* .bg_plant2:hover {
+  opacity: 1; 
+  mask: url("../images/mask.png");
+  mask-size: 3000% 100%;
+  animation:
+    mask-playzero 2s steps(29) forwards,
+  } */
+/* reverse-playzero 2s steps(29) reverse forwards; */
+
+@keyframes mask-playzero {
+  from {
+    mask-position: 0 0;
+  }
+  to {
+    mask-position: 100% 0;
+  }
+}
+
+@keyframes reverse-playzero {
+  from {
+    mask-position: 100% 0;
+  }
+  to {
+    mask-position: 0 0;
+  }
+}
+
 .bg_living {
   background-image: url("./images/bg_living_house_plain_vertical.png");
 }
@@ -42,7 +117,9 @@
     background-image: url("./images/bg_industrial_horizontal.png");
   }
   .bg_living {
-    background-image: url("./images/bg_living_house_sketch2.png");
+    width: 100%;
+    height: auto;
+    background-image: url("./images/svg/bg_living_horiz.svg");
   }
 
   .bg_commercial {
@@ -61,12 +138,14 @@
 .title {
   color: white;
   text-shadow: 0px 0px 3px rgb(0, 0, 0);
-  font-size: 1.3vw;
+  font-size: 1.15vw;
   font-weight: 700;
-  padding: 5px;
+  padding: 5px 15px;
   border: solid 2px #ebebeb;
   background-color: rgba(104, 104, 104, 0.61);
   border-radius: 10px;
+  max-width: 70%;
+  text-align: center;
 }
 
 .btn {
@@ -104,13 +183,4 @@
     padding: 0.5rem 0.8rem 0.4rem 0.8rem;
     font-size: 2.5vw;
   }
-}
-
-/* .btn:hover {
-  background-color: rgb(54, 54, 54);
-} */
-
-.btn:focus {
-  outline: 1px dashed rgb(17, 100, 253);
-  outline-offset: 3px;
 }

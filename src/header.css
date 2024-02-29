@@ -1,4 +1,5 @@
 .container_header {
+  background-color: #505050;
   width: 100%;
   position: relative;
   display: flex;
@@ -7,6 +8,7 @@
   gap: 10px;
   height: 70px;
   margin: 10px 0;
+  border-radius: 10px;
 }
 
 .header_group {
@@ -19,11 +21,12 @@
 
   /* gap: 15px; */
 }
+
 .logo {
   position: relative;
   height: 50px;
   width: 70px;
-  margin-left: 10px;
+  margin: 10px auto 10px 30px;
 }
 
 .buttons {
@@ -57,7 +60,7 @@
 /* Style 1 */
 .btn-1:hover,
 .btn-1:focus {
-  background-color: #264796;
+  background-color: var(--blue);
 }
 
 .btn0 {

@@ -1,11 +1,11 @@
-@import url(./vendor/normalize.css);
-@import url(main.css);
-@import url(header.css);
-@import url(cards.css);
-@import url(footer.css);
-/* @import url(neumorfics.css); */
-@import url(socials.css);
-@import url(buttonCTA.css);
+@import url("../vendor/normalize.css");
+@import url("header.css");
+@import url("cards.css");
+@import url("footer.css");
+/* @import url('neumorfics.css'); */
+@import url("socials.css");
+@import url("buttonCTA.css");
+@import url("neonbutton.css");
 
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
 
@@ -14,6 +14,7 @@
   --e: cubic-bezier(0.19, 1, 0.22, 1);
   /* --font-serif: "Helvetica Neue", sans-serif;
   --font-serif: Arial, sans-serif; */
+  --blue: #0077ff;
 }
 
 * {
@@ -33,8 +34,33 @@ a {
   color: inherit;
 }
 
-button {
-  border: none;
+.page-content {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+/* .page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  margin: 0 auto; */
+/* } */
+
+@media (orientation: portrait) {
+  .page-content {
+    flex-direction: column;
+  }
 }
 
 .page {
