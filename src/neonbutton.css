@@ -21,7 +21,7 @@
 
 .neon_container:hover {
   color: #f7f7f7;
-  background: #0077ff;
+  background: var(--blue);
   /* border-radius: 3px; */
   border: none;
   box-shadow:
