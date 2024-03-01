@@ -341,7 +341,7 @@ function App() {
                   onMouseOver={() => handleMouseOver(el.prop)}
                   onMouseOut={(e) => handleMouseOut(e, el.prop)}
                   style={{
-                    animationDelay: `${5 + Math.random() * 10 + Math.random() * 10}s`,
+                    animationDelay: `${10 + Math.random() * 10 + Math.random() * 10}s`,
                   }}
                 >
                   <span></span>
