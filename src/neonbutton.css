@@ -26,14 +26,15 @@
   border: none;
   box-shadow:
     0 0 10px var(--blue),
-    0 0 40px var(--blue),
-    0 0 80px var(--blue);
+    0 0 20px var(--blue),
+    0 0 25px var(--blue);
   transition-delay: 600ms;
 }
 
 .neon_container span {
   position: absolute;
   display: block;
+  border-radius: 15px;
 }
 
 /************************************************
@@ -43,7 +44,7 @@
   top: 0;
   left: -100%;
   width: 100%;
-  height: 2px;
+  height: 5px;
   background: linear-gradient(90deg, transparent, var(--blue));
 }
 
@@ -59,7 +60,7 @@
   bottom: 0;
   right: -100%;
   width: 100%;
-  height: 2px;
+  height: 5px;
   background: linear-gradient(270deg, transparent, var(--blue));
 }
 
@@ -75,7 +76,7 @@
 .neon_container span:nth-child(2) {
   top: -100%;
   right: 0;
-  width: 2px;
+  width: 4px;
   height: 100%;
   background: linear-gradient(180deg, transparent, var(--blue));
 }
@@ -92,7 +93,7 @@
 .neon_container span:nth-child(4) {
   bottom: -100%;
   left: 0;
-  width: 2px;
+  width: 4px;
   height: 100%;
   background: linear-gradient(360deg, transparent, var(--blue));
 }

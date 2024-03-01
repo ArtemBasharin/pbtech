@@ -14,7 +14,8 @@
   --e: cubic-bezier(0.19, 1, 0.22, 1);
   /* --font-serif: "Helvetica Neue", sans-serif;
   --font-serif: Arial, sans-serif; */
-  --blue: #0077ff;
+  /* --blue: #0077ff; */
+  --blue: #74b6fc;
 }
 
 * {

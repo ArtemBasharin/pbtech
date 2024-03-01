@@ -13,8 +13,6 @@ import {
 import DrawIcon from "@mui/icons-material/Draw";
 import * as d3 from "d3";
 
-// import letters from "../images/logo_letters.svg";
-// import pen from "../images/logo_pen.svg";
 import industrial from "../images/bg_plant_plain_vertical.png";
 import living from "../images/bg_living_vertical.png";
 import commercial from "../images/bg_commercial_vertical.png";
@@ -49,8 +47,10 @@ function App() {
   // }
 
   useEffect(() => {
-    ref && d3.select("#letters").selectAll("path").style("fill", "white");
-    ref && d3.select("#letters").selectAll("polygon").style("fill", "white");
+    ref && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
+    ref && d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
+    ref && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
+    // .style("animation", "neon1 0.0001s ease-in-out infinite alternate");
   }, []);
 
   // ref && d3.select("#letters").selectAll("polygon").style("fill", "white");
@@ -141,7 +141,6 @@ function App() {
       <div className='page' ref={ref}>
         <header className='container_header'>
           <div className='header_group'>
-            {/* <img className='logo' src={pen} /> */}
             <svg
               className='logo'
               id='svgLogo'
@@ -149,7 +148,98 @@ function App() {
               width='70px'
               height='50px'
             >
-              <g id='letters' transformOrigin='center' transform='scale(0.023)'>
+              <filter id='lettersGlow'>
+                <feDropShadow
+                  dx='0'
+                  dy='0'
+                  stdDeviation='50'
+                  floodColor='#ffffff'
+                  floodOpacity='0.8'
+                >
+                  <animate
+                    attributeName='stdDeviation'
+                    from='0'
+                    to='70'
+                    calcMode='spline'
+                    dur='2s'
+                    repeatCount='indefinite'
+                    keyTimes='0; 0.25; 0.5; 0.75; 1'
+                    keySplines='0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1'
+                  />
+                </feDropShadow>
+                <feDropShadow
+                  dx='0'
+                  dy='0'
+                  stdDeviation='50'
+                  floodColor='#ffffff'
+                  floodOpacity='0.8'
+                >
+                  <animate
+                    attributeName='stdDeviation'
+                    from='70'
+                    to='0'
+                    calcMode='spline'
+                    dur='2s'
+                    repeatCount='indefinite'
+                    keyTimes='0; 0.25; 0.5; 0.75; 1'
+                    keySplines='0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1'
+                  />
+                </feDropShadow>
+              </filter>
+
+              <filter id='penGlow'>
+                <feDropShadow
+                  dx='0'
+                  dy='0'
+                  stdDeviation='50'
+                  floodColor='#8ac3ff'
+                  floodOpacity='0.8'
+                >
+                  <animate
+                    attributeName='stdDeviation'
+                    from='0'
+                    to='70'
+                    calcMode='spline'
+                    dur='1.5s'
+                    repeatCount='indefinite'
+                    keyTimes='0; 0.25; 0.5; 0.75; 1'
+                    keySplines='0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1'
+                  />
+                </feDropShadow>
+                <feDropShadow
+                  dx='0'
+                  dy='0'
+                  stdDeviation='50'
+                  floodColor='#8ac3ff'
+                  floodOpacity='0.8'
+                >
+                  <animate
+                    attributeName='stdDeviation'
+                    from='50'
+                    to='0'
+                    calcMode='spline'
+                    dur='1.5s'
+                    repeatCount='indefinite'
+                    keyTimes='0; 0.25; 0.5; 0.75; 1'
+                    keySplines='0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1'
+                  />
+                </feDropShadow>
+              </filter>
+
+              <g
+                id='letters'
+                transformOrigin='center'
+                transform='scale(0.023)'
+                filter='url(#lettersGlow)'
+              >
+                {/* <animate
+                  attributeType='XML'
+                  attributeName='filter'
+                  from='url(#fromFlick)'
+                  to='url(#toFlick)'
+                  dur='0.06s'
+                  repeatCount='indefinite'
+                /> */}
                 <path
                   fill='#5B5B5B'
                   d='M785 803c190,1 345,156 344,347 0,191 -156,345 -347,344 -13,0 -26,-1 -39,-2l0 0 0 -1 -1 -2c0,-11 1,-19 2,-32 13,2 26,3 39,3 171,0 311,-139 312,-310 0,-172 -139,-312 -311,-312 -171,-1 -311,145 -311,310 -1,164 117,287 268,309 1,3 1,-1 2,2 0,5 -1,18 -2,25 -1,1 2,3 0,2l0 5 -4 0c-169,-23 -300,-168 -299,-343 1,-191 156,-346 347,-345z'
@@ -187,30 +277,49 @@ function App() {
                   d='M420 1493l36 0 -199 -692 -204 691 37 0 135 -452c2,-9 15,-21 32,-21 16,0 29,11 32,22l131 452z'
                 />
               </g>
-              <g id='letters' transformOrigin='center' transform='scale(0.023)'>
+              <g
+                id='pen'
+                transformOrigin='center'
+                transform='scale(0.023)'
+                filter='url(#penGlow)'
+              >
                 <path
                   fill='#244082'
                   d='M28 1629c0,0 -2,65 0,0l1573 5 -42 65 -1533 -5 2 -65zm1775 -1628l69 20 -74 250c-10,32 10,67 43,74l1 0 261 78c31,10 64,-8 73,-40l75 -249 68 19 -201 682 -69 -20 74 -249c10,-33 -10,-67 -43,-75l0 0 -262 -78c-31,-9 -65,9 -74,40l-74 249 -68 -20 201 -681zm-23 1223l1 -1c1,-1 2,-3 3,-5l0 0 236 -367 71 20 -490 763 3 -907 70 21 -1 441c0,33 26,59 59,59 19,0 37,-9 48,-24z'
                 />
               </g>
             </svg>
-
-            {/* <img className='logo' src={letters} /> */}
+            {/* <div className='title_main'>
+              Проектное бюро &quot;Технология&quot;
+            </div> */}
             <ul className='buttons'>
               <li className='btn0 btn-1 neon_container' onClick={handleMapOpen}>
                 <a href='#0'>Где находимся</a>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </li>
+
               <li
                 className='btn0 btn-1 neon_container'
                 onClick={handlePriceOpen}
               >
                 <a href='#0'>Цены</a>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </li>
               <li
                 className='btn0 btn-1 neon_container'
                 onClick={handleAboutOpen}
               >
                 <a href='#0'>Контакты</a>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </li>
             </ul>
           </div>
