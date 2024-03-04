@@ -13,21 +13,37 @@ import {
 import DrawIcon from "@mui/icons-material/Draw";
 import * as d3 from "d3";
 
-import industrial from "../images/bg_plant_plain_vertical.png";
-import living from "../images/bg_living_vertical.png";
-import commercial from "../images/bg_commercial_vertical.png";
-import design from "../images/bg_design_vertical.png";
-import hiring from "../images/bg_hiring_vertical.png";
+import industrialV from "../images/bg_industrial_vertical.png";
+import livingV from "../images/bg_living_vertical.png";
+import commercialV from "../images/bg_commercial_vertical.png";
+import designV from "../images/bg_design_vertical.png";
+import hiringV from "../images/bg_hiring_vertical.png";
+
+import industrialH from "../images/bg_industrial_horizontal.png";
+import livingH from "../images/bg_living_horizontal.png";
+import commercialH from "../images/bg_commercial_horizontal.png";
+import designH from "../images/bg_design_horizontal.png";
+import hiringH from "../images/bg_hiring_horizontal.png";
 
 const elems = [
-  { pic: industrial, prop: "industrial", title: "Промышленные объекты" },
-  { pic: living, prop: "living", title: "Жилые здания" },
-  { pic: commercial, prop: "commercial", title: "Торговые комплексы" },
-  { pic: design, prop: "design", title: "Дизайн помещений" },
-  { pic: hiring, prop: "hiring", title: "Открытые вакансии" },
+  {
+    picV: industrialV,
+    picH: industrialH,
+    prop: "industrial",
+    title: "Промышленные объекты",
+  },
+  { picV: livingV, picH: livingH, prop: "living", title: "Жилые здания" },
+  {
+    picV: commercialV,
+    picH: commercialH,
+    prop: "commercial",
+    title: "Торговые комплексы",
+  },
+  { picV: designV, picH: designH, prop: "design", title: "Дизайн помещений" },
+  { picV: hiringV, picH: hiringH, prop: "hiring", title: "Открытые вакансии" },
 ];
 
-const style = {
+const stylePopup = {
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -40,11 +56,28 @@ const style = {
   p: 2,
 };
 
+const styleCard_portrait = {
+  height: "auto",
+  width: "100%",
+};
+
+const styleCard_landscape = {
+  height: "100%",
+  width: "auto",
+};
+
 function App() {
   let ref = useRef();
   // if (ref) {
   // let logoLetters = d3.select("#letters");
   // }
+
+  let screenWidth = screen.width;
+  let screenHeight = screen.height;
+  let isPortrait = screenHeight > screenWidth;
+  console.log(screenWidth, screenHeight);
+
+  // Добавляем слушателя события на изменение ориентации
 
   useEffect(() => {
     ref && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
@@ -335,7 +368,12 @@ function App() {
           {elems.map((el, index) => {
             return (
               <div className='card' key={index}>
-                <img className='card picture' id={el.prop} src={el.pic} />
+                <img
+                  className='card picture'
+                  id={el.prop}
+                  src={isPortrait ? el.picH : el.picV}
+                  style={isPortrait ? styleCard_portrait : styleCard_landscape}
+                />
                 <div
                   className='btn_jittery title neon_container'
                   onMouseOver={() => handleMouseOver(el.prop)}
@@ -368,7 +406,7 @@ function App() {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box sx={stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Наш офис на Геблера 28:
           </Typography>
@@ -388,7 +426,7 @@ function App() {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box sx={stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Предварительная стоимость услуг:
           </Typography>
@@ -437,7 +475,7 @@ function App() {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box sx={stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Контакты и юридическая информация
           </Typography>

@@ -24,14 +24,14 @@
   background-position: center center;
 }
 
-.picture:hover {
+/* .picture:hover {
   position: absolute;
   height: 900px;
   width: 100%;
   left: 0;
   top: 0;
   object-fit: "cover";
-}
+} */
 
 /* .card:hover {
   filter: blur(2px); /* Размытие контура изображения 
@@ -78,7 +78,7 @@
   } */
 /* reverse-playzero 2s steps(29) reverse forwards; */
 
-@keyframes mask-playzero {
+/* @keyframes mask-playzero {
   from {
     mask-position: 0 0;
   }
@@ -94,46 +94,7 @@
   to {
     mask-position: 0 0;
   }
-}
-
-.bg_living {
-  background-image: url("./images/bg_living_house_plain_vertical.png");
-}
-
-.bg_commercial {
-  background-image: url("./images/bg_commercial_plain_vertical.png");
-}
-
-.bg_design {
-  background-image: url("./images/bg_indoor_plain_vertical.png");
-}
-
-.bg_hiring {
-  background-image: url("./images/bg_hiring_vertical.png");
-}
-
-@media (orientation: portrait) {
-  .bg_plant {
-    background-image: url("./images/bg_industrial_horizontal.png");
-  }
-  .bg_living {
-    width: 100%;
-    height: auto;
-    background-image: url("./images/svg/bg_living_horiz.svg");
-  }
-
-  .bg_commercial {
-    background-image: url("./images/bg_commercial_horizontal.png");
-  }
-
-  .bg_design {
-    background-image: url("./images/bg_design_horizontal2.png");
-  }
-
-  .bg_hiring {
-    background-image: url("./images/bg_hiring_horizontal.png");
-  }
-}
+} */
 
 .title {
   color: white;
