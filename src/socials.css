@@ -64,35 +64,34 @@
 
 @media screen and (max-width: 991px) {
   .wrapper .icon {
-    position: relative;
-    background-color: #f3f3f3;
-    border-radius: 50%;
+    /* position: relative; */
+    /* border-radius: 50%; */
     padding: 15px;
     margin: 7px;
     width: 35px;
     height: 35px;
     font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
     /* box-shadow: 0 10px 19px rgba(0, 0, 0, 0.1); */
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* cursor: pointer; */
+    /* transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
   }
-  .wrapper .tooltip {
+  /* .wrapper .tooltip {
     position: absolute;
     top: 0;
     font-size: 12px;
     background-color: #ffffff;
     color: #ffffff;
     padding: 2.5px 4px;
-    border-radius: 5px;
-    /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 5px; */
+  /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
+  } */
 }
 
 @media (orientation: portrait) {
@@ -103,11 +102,13 @@
   .wrapper .icon {
     padding: 5px;
     margin: 3px;
-
     width: 25px;
     height: 25px;
-    font-size: 12px;
+    font-size: 24px;
     line-height: 12px;
+  }
+  .wrapper {
+    gap: 15px;
   }
 }
 

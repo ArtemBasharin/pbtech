@@ -106,7 +106,7 @@ function App() {
     const selectedElement = document.getElementById(prop);
     if (selectedElement) {
       selectedElement.style.transition = "filter 0.4s ease-in-out";
-      selectedElement.style.filter = "blur(12px) saturate(0%) ";
+      selectedElement.style.filter = "blur(12px) saturate(0%) brightness(60%)";
     }
   };
 

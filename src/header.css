@@ -70,8 +70,9 @@
 
 @media (orientation: portrait) {
   .container_header {
-    width: 100%;
-    padding: 0 10px;
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    padding-right: 25px;
   }
 
   .btn0 {
@@ -79,8 +80,8 @@
   }
 
   .logo {
-    width: 50px;
-    height: auto;
-    margin-left: 0;
+    /* width: 50px; */
+    /* height: auto; */
+    margin-left: 15px;
   }
 }
