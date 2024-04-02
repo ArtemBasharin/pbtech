@@ -24,6 +24,7 @@ import livingH from "../images/bg_living_horizontal.png";
 import commercialH from "../images/bg_commercial_horizontal.png";
 import designH from "../images/bg_design_horizontal.png";
 import hiringH from "../images/bg_hiring_horizontal.png";
+import { TapMenu } from "./TapMenu";
 
 const elems = [
   {
@@ -68,69 +69,10 @@ const styleCard_landscape = {
 
 function App() {
   let ref = useRef();
-  // if (ref) {
-  // let logoLetters = d3.select("#letters");
-  // }
-
   let screenWidth = screen.width;
   let screenHeight = screen.height;
   let isPortrait = screenHeight > screenWidth;
   console.log(screenWidth, screenHeight);
-
-  // Добавляем слушателя события на изменение ориентации
-
-  useEffect(() => {
-    ref && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
-    ref && d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
-    ref && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
-    // .style("animation", "neon1 0.0001s ease-in-out infinite alternate");
-  }, []);
-
-  // ref && d3.select("#letters").selectAll("polygon").style("fill", "white");
-
-  // ref && console.log(d3.select("#svgLogo"));
-
-  const [isMapOpened, setIsMapOpened] = useState(false);
-  const handleMapOpen = () => setIsMapOpened(true);
-  const handleMapClose = () => setIsMapOpened(false);
-
-  const [isPriceOpened, setIsPriceOpened] = useState(false);
-  const handlePriceOpen = () => setIsPriceOpened(true);
-  const handlePriceClose = () => setIsPriceOpened(false);
-
-  const [isAboutOpened, setIsAboutOpened] = useState(false);
-  const handleAboutOpen = () => setIsAboutOpened(true);
-  const handleAboutClose = () => setIsAboutOpened(false);
-
-  window.addEventListener("resize", () => {
-    let vh = window.innerHeight / 100;
-    let vw = window.innerWidth / 100;
-
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    document.documentElement.style.setProperty("--vw", `${vw}px`);
-  });
-
-  function hideAddressBar() {
-    if (!window.location.hash) {
-      if (document.height < window.outerHeight) {
-        document.body.style.height = window.outerHeight + 50 + "px";
-      }
-
-      setTimeout(function () {
-        window.scrollTo(0, 1);
-      }, 50);
-    }
-  }
-
-  window.addEventListener("load", function () {
-    if (!window.scrollY) {
-      hideAddressBar();
-    }
-  });
-
-  window.addEventListener("orientationchange", hideAddressBar);
-
-  let ctaButton = document.querySelector(".btn_jittery");
 
   const handleMouseOver = (prop) => {
     const animatedButtons = document.querySelectorAll(".btn_jittery");
@@ -154,11 +96,11 @@ function App() {
         const animatedButtons = document.querySelectorAll(".btn_jittery");
         animatedButtons.forEach((el) => {
           el.style.animation = "jittery 6s infinite";
-          el.style.animationDelay = `${5 + Math.random() * 10 + Math.random() * 10}s`;
         });
       }
     }
   };
+  let ctaButton = document.querySelector(".btn_jittery");
 
   DG.then(function () {
     let map;
@@ -168,6 +110,52 @@ function App() {
     });
     DG.marker([53.34172210833575, 83.77499609815216]).addTo(map);
   });
+
+  const [isMapOpened, setIsMapOpened] = useState(false);
+  const handleMapOpen = () => setIsMapOpened(true);
+  const handleMapClose = () => setIsMapOpened(false);
+
+  const [isPriceOpened, setIsPriceOpened] = useState(false);
+  const handlePriceOpen = () => setIsPriceOpened(true);
+  const handlePriceClose = () => setIsPriceOpened(false);
+
+  const [isAboutOpened, setIsAboutOpened] = useState(false);
+  const handleAboutOpen = () => setIsAboutOpened(true);
+  const handleAboutClose = () => setIsAboutOpened(false);
+
+  useEffect(() => {
+    ref && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
+    ref && d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
+    ref && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
+
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight / 100;
+      let vw = window.innerWidth / 100;
+
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.setProperty("--vw", `${vw}px`);
+    });
+
+    function hideAddressBar() {
+      if (!window.location.hash) {
+        if (document.height < window.outerHeight) {
+          document.body.style.height = window.outerHeight + 50 + "px";
+        }
+
+        setTimeout(function () {
+          window.scrollTo(0, 1);
+        }, 50);
+      }
+    }
+
+    window.addEventListener("load", function () {
+      if (!window.scrollY) {
+        hideAddressBar();
+      }
+    });
+
+    window.addEventListener("orientationchange", hideAddressBar);
+  }, []);
 
   return (
     <>
@@ -379,7 +367,7 @@ function App() {
                   onMouseOver={() => handleMouseOver(el.prop)}
                   onMouseOut={(e) => handleMouseOut(e, el.prop)}
                   style={{
-                    animationDelay: `${10 + Math.random() * 10 + Math.random() * 10}s`,
+                    animationDelay: `${5 + Math.random() * 10 + Math.random() * 10}s`,
                   }}
                 >
                   <span></span>
@@ -500,6 +488,7 @@ function App() {
       <div className='popup_map'></div>
       <div className='popup_about'></div>
       <div className='popup_price'></div>
+      <TapMenu />
     </>
   );
 }
