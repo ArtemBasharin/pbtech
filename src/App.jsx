@@ -80,7 +80,7 @@ function App() {
   const [value, setValue] = useState("");
   const handleChangeBottomMenu = (event, newValue) => {
     setValue(newValue);
-    handleAllClose();
+    // handleAllClose();
     if (newValue === "location") {
       handleMapOpen();
     }
@@ -108,6 +108,9 @@ function App() {
     handleMapClose();
     handlePriceClose();
     handleAboutClose();
+    setTimeout(() => {
+      setValue("");
+    }, 500);
   };
 
   let screenWidth = screen.width;
@@ -442,7 +445,7 @@ function App() {
 
       <Modal
         open={isMapOpened}
-        onClose={handleMapClose}
+        onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
         sx={{ width: "auto", marginLeft: 5, marginRight: 5 }}
@@ -463,7 +466,7 @@ function App() {
 
       <Modal
         open={isPriceOpened}
-        onClose={handlePriceClose}
+        onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
         sx={{ width: "auto", marginLeft: 5, marginRight: 5 }}
@@ -513,7 +516,7 @@ function App() {
 
       <Modal
         open={isAboutOpened}
-        onClose={handleAboutClose}
+        onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
         sx={{ width: "auto", marginLeft: 5, marginRight: 5 }}
