@@ -53,10 +53,15 @@ const elems = [
 
 const stylePopup = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  // margin: "auto",
+  // transform: "translate(0, 50%)",
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  margin: "auto",
   width: 400,
+  height: "min-content",
   bgcolor: "background.paper",
   border: "1px solid #000",
   borderRadius: 2,
@@ -448,7 +453,7 @@ function App() {
         onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        sx={{ marginLeft: "auto", marginRight: "auto" }}
+        sx={{ width: "auto", marginLeft: "auto", marginRight: "auto" }}
       >
         <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
