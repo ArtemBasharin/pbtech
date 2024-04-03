@@ -24,7 +24,7 @@ import livingH from "../images/bg_living_horizontal.png";
 import commercialH from "../images/bg_commercial_horizontal.png";
 import designH from "../images/bg_design_horizontal.png";
 import hiringH from "../images/bg_hiring_horizontal.png";
-import { TapMenu } from "./TapMenu";
+import { LabelBottomNavigation } from "./TapMenu";
 
 const elems = [
   {
@@ -130,7 +130,7 @@ function App() {
 
     window.addEventListener("resize", () => {
       let vh = window.innerHeight / 100;
-      let vw = window.innerWidth / 100;
+      let vw = screen.innerWidth / 100;
 
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
@@ -344,13 +344,13 @@ function App() {
               </li>
             </ul>
           </div>
-          <div className='wrapper'>
-            <a className='icon fab fa-vk'></a>
-            <a className='icon fab fa-telegram'></a>
-            <a className='icon fab fa-instagram'></a>
-            <a className='icon fab fa-youtube'></a>
-            <a className='icon fab fa-whatsapp'></a>
-          </div>
+          <ul className='wrapper'>
+            <li className='icon fab fa-vk'></li>
+            <li className='icon fab fa-telegram'></li>
+            <li className='icon fab fa-instagram'></li>
+            <li className='icon fab fa-youtube'></li>
+            <li className='icon fab fa-whatsapp'></li>
+          </ul>
         </header>
         <main className='page-content'>
           {elems.map((el, index) => {
@@ -379,6 +379,7 @@ function App() {
               </div>
             );
           })}
+          <LabelBottomNavigation />
         </main>
 
         <footer className='footer'>
@@ -488,7 +489,6 @@ function App() {
       <div className='popup_map'></div>
       <div className='popup_about'></div>
       <div className='popup_price'></div>
-      <TapMenu />
     </>
   );
 }
