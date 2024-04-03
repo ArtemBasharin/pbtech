@@ -10,7 +10,14 @@ import {
   Modal,
   Typography,
 } from "@mui/material";
+
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+import BusinessTwoToneIcon from "@mui/icons-material/BusinessTwoTone";
+import LocationOnTwoToneIcon from "@mui/icons-material/LocationOnTwoTone";
 import DrawIcon from "@mui/icons-material/Draw";
+
 import * as d3 from "d3";
 
 import industrialV from "../images/bg_industrial_vertical.png";
@@ -24,7 +31,7 @@ import livingH from "../images/bg_living_horizontal.png";
 import commercialH from "../images/bg_commercial_horizontal.png";
 import designH from "../images/bg_design_horizontal.png";
 import hiringH from "../images/bg_hiring_horizontal.png";
-import { LabelBottomNavigation } from "./TapMenu";
+// import { LabelBottomNavigation } from "./TapMenu";
 
 const elems = [
   {
@@ -69,6 +76,40 @@ const styleCard_landscape = {
 
 function App() {
   let ref = useRef();
+
+  const [value, setValue] = useState("");
+  const handleChangeBottomMenu = (event, newValue) => {
+    setValue(newValue);
+    handleAllClose();
+    if (newValue === "location") {
+      handleMapOpen();
+    }
+    if (newValue === "contacts") {
+      handleAboutOpen();
+    }
+    if (newValue === "price") {
+      handlePriceOpen();
+    }
+  };
+
+  const [isMapOpened, setIsMapOpened] = useState(false);
+  const handleMapOpen = () => setIsMapOpened(true);
+  const handleMapClose = () => setIsMapOpened(false);
+
+  const [isPriceOpened, setIsPriceOpened] = useState(false);
+  const handlePriceOpen = () => setIsPriceOpened(true);
+  const handlePriceClose = () => setIsPriceOpened(false);
+
+  const [isAboutOpened, setIsAboutOpened] = useState(false);
+  const handleAboutOpen = () => setIsAboutOpened(true);
+  const handleAboutClose = () => setIsAboutOpened(false);
+
+  const handleAllClose = () => {
+    handleMapClose();
+    handlePriceClose();
+    handleAboutClose();
+  };
+
   let screenWidth = screen.width;
   let screenHeight = screen.height;
   let isPortrait = screenHeight > screenWidth;
@@ -100,6 +141,7 @@ function App() {
       }
     }
   };
+
   let ctaButton = document.querySelector(".btn_jittery");
 
   DG.then(function () {
@@ -110,18 +152,6 @@ function App() {
     });
     DG.marker([53.34172210833575, 83.77499609815216]).addTo(map);
   });
-
-  const [isMapOpened, setIsMapOpened] = useState(false);
-  const handleMapOpen = () => setIsMapOpened(true);
-  const handleMapClose = () => setIsMapOpened(false);
-
-  const [isPriceOpened, setIsPriceOpened] = useState(false);
-  const handlePriceOpen = () => setIsPriceOpened(true);
-  const handlePriceClose = () => setIsPriceOpened(false);
-
-  const [isAboutOpened, setIsAboutOpened] = useState(false);
-  const handleAboutOpen = () => setIsAboutOpened(true);
-  const handleAboutClose = () => setIsAboutOpened(false);
 
   useEffect(() => {
     ref && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
@@ -379,7 +409,28 @@ function App() {
               </div>
             );
           })}
-          <LabelBottomNavigation />
+
+          <BottomNavigation
+            sx={{ width: "100%" }}
+            value={value}
+            onChange={handleChangeBottomMenu}
+          >
+            <BottomNavigationAction
+              label='Где найти'
+              value='location'
+              icon={<LocationOnTwoToneIcon />}
+            />
+            <BottomNavigationAction
+              label='Контакты'
+              value='contacts'
+              icon={<BusinessTwoToneIcon />}
+            />
+            <BottomNavigationAction
+              label='Цены'
+              value='price'
+              icon={<ShoppingCartTwoToneIcon />}
+            />
+          </BottomNavigation>
         </main>
 
         <footer className='footer'>
