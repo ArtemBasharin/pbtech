@@ -421,17 +421,17 @@ function App() {
             <BottomNavigationAction
               label='Где найти'
               value='location'
-              icon={<LocationOnTwoToneIcon sx={{ fontSize: 40 }} />}
+              icon={<LocationOnTwoToneIcon sx={{ fontSize: 30 }} />}
             />
             <BottomNavigationAction
               label='Контакты'
               value='contacts'
-              icon={<BusinessTwoToneIcon sx={{ fontSize: 40 }} />}
+              icon={<BusinessTwoToneIcon sx={{ fontSize: 30 }} />}
             />
             <BottomNavigationAction
               label='Цены'
               value='price'
-              icon={<ShoppingCartTwoToneIcon sx={{ fontSize: 40 }} />}
+              icon={<ShoppingCartTwoToneIcon sx={{ fontSize: 30 }} />}
             />
           </BottomNavigation>
         </main>
