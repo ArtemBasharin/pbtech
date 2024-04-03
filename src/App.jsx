@@ -448,9 +448,8 @@ function App() {
         onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        sx={{ width: "auto", marginLeft: 5, marginRight: 5 }}
       >
-        <Box sx={stylePopup}>
+        <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Наш офис на Геблера 28:
           </Typography>
@@ -469,9 +468,8 @@ function App() {
         onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        sx={{ width: "auto", marginLeft: 5, marginRight: 5 }}
       >
-        <Box sx={stylePopup}>
+        <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Предварительная стоимость услуг:
           </Typography>
@@ -519,9 +517,8 @@ function App() {
         onClose={handleAllClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        sx={{ width: "auto", marginLeft: 5, marginRight: 5 }}
       >
-        <Box sx={stylePopup}>
+        <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Контакты и юридическая информация
           </Typography>
