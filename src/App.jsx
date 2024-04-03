@@ -445,6 +445,7 @@ function App() {
         onClose={handleMapClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
+        sx={{ width: "95%", marginLeft: "auto", marginRight: "auto" }}
       >
         <Box sx={stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
@@ -465,6 +466,7 @@ function App() {
         onClose={handlePriceClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
+        sx={{ width: "95%", marginLeft: "auto", marginRight: "auto" }}
       >
         <Box sx={stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
@@ -514,6 +516,7 @@ function App() {
         onClose={handleAboutClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
+        sx={{ width: "95%", marginLeft: "auto", marginRight: "auto" }}
       >
         <Box sx={stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
