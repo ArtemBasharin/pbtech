@@ -67,7 +67,7 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace;
+  /* font-family: monospace, monospace; */
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -115,7 +115,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  /* font-family: monospace, monospace; */
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -174,7 +174,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  /* font-family: inherit; */
   /* 1 */
   font-size: 100%;
   /* 1 */

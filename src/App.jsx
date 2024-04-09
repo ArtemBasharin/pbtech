@@ -80,14 +80,22 @@ const styleCard_landscape = {
 };
 
 function App() {
-  let ref = useRef();
+  let pageRef = useRef();
+  let mapRef = useRef();
 
   const [value, setValue] = useState("");
   const handleChangeBottomMenu = (event, newValue) => {
     setValue(newValue);
-    // handleAllClose();
     if (newValue === "location") {
       handleMapOpen();
+      DG.then(function () {
+        let map;
+        map = DG.map("map", {
+          center: [53.34172210833575, 83.77499609815216],
+          zoom: 17,
+        });
+        DG.marker([53.34172210833575, 83.77499609815216]).addTo(map);
+      });
     }
     if (newValue === "contacts") {
       handleAboutOpen();
@@ -120,8 +128,7 @@ function App() {
 
   let screenWidth = screen.width;
   let screenHeight = screen.height;
-  let isPortrait = screenHeight > screenWidth;
-  console.log(screenWidth, screenHeight);
+  const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
 
   const handleMouseOver = (prop) => {
     const animatedButtons = document.querySelectorAll(".btn_jittery");
@@ -130,7 +137,7 @@ function App() {
     const selectedElement = document.getElementById(prop);
     if (selectedElement) {
       selectedElement.style.transition = "filter 0.4s ease-in-out";
-      selectedElement.style.filter = "blur(12px) saturate(0%) brightness(60%)";
+      selectedElement.style.filter = "blur(4px) saturate(90%) brightness(145%)";
     }
   };
 
@@ -150,29 +157,36 @@ function App() {
     }
   };
 
+  const [buttonClicked, setButtonClicked] = useState(new Array(3).fill(false)); // Предположим, что у вас 3 картинки
+
+  // Функция-обработчик для нажатия кнопки
+  const handleClick = (index) => {
+    // Создаем новый массив, изменяя состояние только для нажатой кнопки
+    const newButtonClicked = [...buttonClicked];
+    newButtonClicked[index] = !newButtonClicked[index];
+    // Устанавливаем новое состояние
+    setButtonClicked(newButtonClicked);
+  };
+
   let ctaButton = document.querySelector(".btn_jittery");
 
-  DG.then(function () {
-    let map;
-    map = DG.map("map", {
-      center: [53.34172210833575, 83.77499609815216],
-      zoom: 17,
-    });
-    DG.marker([53.34172210833575, 83.77499609815216]).addTo(map);
-  });
-
   useEffect(() => {
-    ref && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
-    ref && d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
-    ref && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
+    pageRef && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
+    pageRef &&
+      d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
+    pageRef && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
 
-    window.addEventListener("resize", () => {
+    const updateOrientation = () => {
       let vh = window.innerHeight / 100;
-      let vw = screen.innerWidth / 100;
-
+      let vw = window.innerWidth / 100;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
-    });
+      const newIsPortrait = vh > vw;
+      setIsPortrait(newIsPortrait);
+      console.log(newIsPortrait);
+    };
+
+    window.addEventListener("resize", updateOrientation);
 
     function hideAddressBar() {
       if (!window.location.hash) {
@@ -193,11 +207,16 @@ function App() {
     });
 
     window.addEventListener("orientationchange", hideAddressBar);
-  }, []);
+
+    // return () => {
+    //   window.removeEventListener("resize", updateOrientation);
+    //   window.removeEventListener("orientationchange", hideAddressBar);
+    // };
+  }, [mapRef]);
 
   return (
     <>
-      <div className='page' ref={ref}>
+      <div className='page' ref={pageRef}>
         <header className='container_header'>
           <div className='header_group'>
             <svg
@@ -287,9 +306,9 @@ function App() {
 
               <g
                 id='letters'
-                transformOrigin='center'
                 transform='scale(0.023)'
                 filter='url(#lettersGlow)'
+                style={{ transformorigin: "center" }}
               >
                 {/* <animate
                   attributeType='XML'
@@ -338,9 +357,9 @@ function App() {
               </g>
               <g
                 id='pen'
-                transformOrigin='center'
                 transform='scale(0.023)'
                 filter='url(#penGlow)'
+                style={{ transformorigin: "center" }}
               >
                 <path
                   fill='#244082'
@@ -348,9 +367,6 @@ function App() {
                 />
               </g>
             </svg>
-            {/* <div className='title_main'>
-              Проектное бюро &quot;Технология&quot;
-            </div> */}
             <ul className='buttons'>
               <li className='btn0 btn-1 neon_container' onClick={handleMapOpen}>
                 <a href='#0'>Где находимся</a>
@@ -395,15 +411,18 @@ function App() {
             return (
               <div className='card' key={index}>
                 <img
-                  className='card picture'
+                  key={index + "img"}
+                  className={`card picture`}
+                  // ${buttonClicked[index] ? "animate__animated animate__hinge" : ""}
                   id={el.prop}
                   src={isPortrait ? el.picH : el.picV}
                   style={isPortrait ? styleCard_portrait : styleCard_landscape}
                 />
-                <div
+                <button
                   className='btn_jittery title neon_container'
                   onMouseOver={() => handleMouseOver(el.prop)}
                   onMouseOut={(e) => handleMouseOut(e, el.prop)}
+                  onClick={() => handleClick(index)}
                   style={{
                     animationDelay: `${5 + Math.random() * 10 + Math.random() * 10}s`,
                   }}
@@ -413,7 +432,7 @@ function App() {
                   <span></span>
                   <span></span>
                   {el.title}
-                </div>
+                </button>
               </div>
             );
           })}
@@ -454,6 +473,7 @@ function App() {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
         sx={{ width: "auto", marginLeft: "auto", marginRight: "auto" }}
+        ref={mapRef}
       >
         <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
           <Typography id='modal-modal-title' variant='h6' component='h2'>
@@ -463,7 +483,7 @@ function App() {
             component='section'
             id='map'
             height={400}
-            fullwidth
+            // fullwidth='true'
             sx={{ p: 1, border: "1px dashed grey" }}
           ></Box>
         </Box>
