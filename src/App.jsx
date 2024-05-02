@@ -166,22 +166,20 @@ function App() {
   const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
 
   const handleMouseOver = (prop) => {
-    const images = document.querySelectorAll(".picture");
+    const images = document.querySelectorAll(".picture_overlay");
     images.forEach((el) => {
       // alert(el.style.backgroundImage);
       console.log(el);
       // console.log(elems.find((el) => el.prop === prop.prop));
-      el.style.backgroundImage = isPortrait
-        ? `url(${elems.find((elems) => elems.prop === el.id).picH})`
-        : `url(${elems.find((elems) => elems.prop === el.id).picV})`;
+      el.style.opacity = 0;
     });
 
     const animatedButtons = document.querySelectorAll(".btn_jittery");
     animatedButtons.forEach((el) => (el.style.animation = "none"));
 
-    const selectedElement = document.getElementById(prop.prop);
-    if (selectedElement) {
-      selectedElement.style.backgroundImage = `url('${isPortrait ? prop.picH2 : prop.picV2}')`;
+    const selectedElementOverlay = document.getElementById(`${prop.prop}2`);
+    if (selectedElementOverlay) {
+      selectedElementOverlay.style.opacity = 1;
     }
   };
 
@@ -460,6 +458,18 @@ function App() {
                       : styleCard_landscape(el.picV)
                   }
                 ></div>
+
+                <div
+                  key={index + "img2"}
+                  className={`card picture picture_overlay`}
+                  id={`${el.prop}2`}
+                  style={
+                    isPortrait
+                      ? styleCard_portrait(el.picH2)
+                      : styleCard_landscape(el.picV2)
+                  }
+                ></div>
+
                 <button
                   className='btn_jittery title neon_container'
                   onMouseOver={() => handleMouseOver(el)}
