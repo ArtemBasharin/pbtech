@@ -168,8 +168,12 @@ function App() {
   const handleMouseOver = (prop) => {
     const images = document.querySelectorAll(".picture");
     images.forEach((el) => {
-      alert(el.style.backgroundImage);
-      el.style.backgroundImage = `${el.style.backgroundImage.replace("2.png", ".png")}`;
+      // alert(el.style.backgroundImage);
+      console.log(el);
+      // console.log(elems.find((el) => el.prop === prop.prop));
+      el.style.backgroundImage = isPortrait
+        ? `url(${elems.find((elems) => elems.prop === el.id).picH})`
+        : `url(${elems.find((elems) => elems.prop === el.id).picV})`;
     });
 
     const animatedButtons = document.querySelectorAll(".btn_jittery");
