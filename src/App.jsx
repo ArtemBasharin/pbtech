@@ -106,9 +106,8 @@ const stylePopup = {
   p: 2,
 };
 
-const styleCard_portrait = {
-  height: "auto",
-  width: "100%",
+const styleCard_portrait = (url) => {
+  return { height: "100%", width: "100%", backgroundImage: `url(${url})` };
 };
 
 const styleCard_landscape = {
@@ -171,7 +170,7 @@ function App() {
     const images = document.querySelectorAll(".picture");
 
     images.forEach((el) => {
-      el.src = el.src.replace("2.png", ".png");
+      el.style.backgroundImage = `${el.style.backgroundImage.replace("2.png", ".png")}`;
     });
 
     const animatedButtons = document.querySelectorAll(".btn_jittery");
@@ -179,7 +178,8 @@ function App() {
 
     const selectedElement = document.getElementById(prop.prop);
     if (selectedElement) {
-      selectedElement.setAttribute("src", isPortrait ? prop.picH2 : prop.picV2);
+      console.log(isPortrait);
+      selectedElement.style.backgroundImage = `url('${isPortrait ? prop.picH2 : prop.picV2}')`;
     }
   };
 
@@ -458,14 +458,18 @@ function App() {
           {elems.map((el, index) => {
             return (
               <div className='card' key={index}>
-                <img
+                <div
                   key={index + "img"}
                   className={`card picture`}
                   // ${buttonClicked[index] ? "animate__animated animate__hinge" : ""}
                   id={el.prop}
-                  src={isPortrait ? el.picH : el.picV}
-                  style={isPortrait ? styleCard_portrait : styleCard_landscape}
-                />
+                  // src={isPortrait ? el.picH : el.picV}
+                  style={
+                    isPortrait
+                      ? styleCard_portrait(el.picH)
+                      : styleCard_landscape
+                  }
+                ></div>
                 <button
                   className='btn_jittery title neon_container'
                   onMouseOver={() => handleMouseOver(el)}
