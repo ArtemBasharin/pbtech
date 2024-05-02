@@ -474,6 +474,7 @@ function App() {
                   className='btn_jittery title neon_container'
                   onMouseOver={() => handleMouseOver(el)}
                   onMouseOut={(e) => handleMouseOut(e, el.prop)}
+                  onTouchStart={() => handleMouseOver(el)}
                   onClick={() => handleClick(index)}
                   style={{
                     animationDelay: `${5 + Math.random() * 10 + Math.random() * 10}s`,
