@@ -23,6 +23,10 @@
   top: 0;
   background-size: cover;
   background-position: center center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 0.3s ease;
 }
 
 /* .picture:hover {

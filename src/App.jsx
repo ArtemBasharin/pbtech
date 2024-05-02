@@ -26,29 +26,66 @@ import commercialV from "../images/bg_commercial_vertical.png";
 import designV from "../images/bg_design_vertical.png";
 import hiringV from "../images/bg_hiring_vertical.png";
 
+import industrialV2 from "../images/bg_industrial_vertical2.png";
+import livingV2 from "../images/bg_living_vertical2.png";
+import commercialV2 from "../images/bg_commercial_vertical2.png";
+import designV2 from "../images/bg_design_vertical2.png";
+import hiringV2 from "../images/bg_hiring_vertical2.png";
+
 import industrialH from "../images/bg_industrial_horizontal.png";
 import livingH from "../images/bg_living_horizontal.png";
 import commercialH from "../images/bg_commercial_horizontal.png";
 import designH from "../images/bg_design_horizontal.png";
 import hiringH from "../images/bg_hiring_horizontal.png";
+
+import industrialH2 from "../images/bg_industrial_horizontal2.png";
+import livingH2 from "../images/bg_living_horizontal2.png";
+import commercialH2 from "../images/bg_commercial_horizontal2.png";
+import designH2 from "../images/bg_design_horizontal2.png";
+import hiringH2 from "../images/bg_hiring_horizontal2.png";
 // import { LabelBottomNavigation } from "./TapMenu";
 
 const elems = [
   {
     picV: industrialV,
     picH: industrialH,
+    picV2: industrialV2,
+    picH2: industrialH2,
     prop: "industrial",
     title: "Промышленные объекты",
   },
-  { picV: livingV, picH: livingH, prop: "living", title: "Жилые здания" },
+  {
+    picV: livingV,
+    picH: livingH,
+    picV2: livingV2,
+    picH2: livingH2,
+    prop: "living",
+    title: "Жилые здания",
+  },
   {
     picV: commercialV,
     picH: commercialH,
+    picV2: commercialV2,
+    picH2: commercialH2,
     prop: "commercial",
     title: "Торговые комплексы",
   },
-  { picV: designV, picH: designH, prop: "design", title: "Дизайн помещений" },
-  { picV: hiringV, picH: hiringH, prop: "hiring", title: "Открытые вакансии" },
+  {
+    picV: designV,
+    picH: designH,
+    picV2: designV2,
+    picH2: designH2,
+    prop: "design",
+    title: "Дизайн помещений",
+  },
+  {
+    picV: hiringV,
+    picH: hiringH,
+    picV2: hiringV2,
+    picH2: hiringH2,
+    prop: "hiring",
+    title: "Открытые вакансии",
+  },
 ];
 
 const stylePopup = {
@@ -131,23 +168,34 @@ function App() {
   const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
 
   const handleMouseOver = (prop) => {
+    const images = document.querySelectorAll(".picture");
+
+    images.forEach((el) => {
+      el.src = el.src.replace("2.png", ".png");
+    });
+
     const animatedButtons = document.querySelectorAll(".btn_jittery");
     animatedButtons.forEach((el) => (el.style.animation = "none"));
 
-    const selectedElement = document.getElementById(prop);
+    const selectedElement = document.getElementById(prop.prop);
     if (selectedElement) {
-      selectedElement.style.transition = "filter 0.4s ease-in-out";
-      selectedElement.style.filter = "blur(4px) saturate(90%) brightness(145%)";
+      selectedElement.setAttribute("src", isPortrait ? prop.picH2 : prop.picV2);
     }
   };
 
   const handleMouseOut = (e, prop) => {
     if (!e.relatedTarget.contains(ctaButton)) {
-      const selectedElement = document.getElementById(prop);
-
+      const selectedElement = document.getElementById(prop.prop);
       if (selectedElement) {
-        selectedElement.style.transition = "filter 0.4s ease-in-out";
-        selectedElement.style.filter = "";
+        // Удаление "2" из имени файла изображения
+        // const img = selectedElement.querySelector("img");
+        // const imgSrc = img.getAttribute("src");
+        // const newImgSrc = imgSrc.replace("2.png", ".png");
+
+        // selectedElement.setAttribute(
+        //   "src",
+        //   isPortrait ? prop.picH1 : prop.picV1
+        // );
 
         const animatedButtons = document.querySelectorAll(".btn_jittery");
         animatedButtons.forEach((el) => {
@@ -157,7 +205,7 @@ function App() {
     }
   };
 
-  const [buttonClicked, setButtonClicked] = useState(new Array(3).fill(false)); // Предположим, что у вас 3 картинки
+  const [buttonClicked, setButtonClicked] = useState(new Array(3).fill(false));
 
   // Функция-обработчик для нажатия кнопки
   const handleClick = (index) => {
@@ -420,7 +468,7 @@ function App() {
                 />
                 <button
                   className='btn_jittery title neon_container'
-                  onMouseOver={() => handleMouseOver(el.prop)}
+                  onMouseOver={() => handleMouseOver(el)}
                   onMouseOut={(e) => handleMouseOut(e, el.prop)}
                   onClick={() => handleClick(index)}
                   style={{
