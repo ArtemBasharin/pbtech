@@ -166,20 +166,20 @@ function App() {
   const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
 
   const handleMouseOver = (prop) => {
-    const images = document.querySelectorAll(".picture_overlay");
+    const images = document.querySelectorAll(".picture");
     images.forEach((el) => {
       // alert(el.style.backgroundImage);
       console.log(el);
       // console.log(elems.find((el) => el.prop === prop.prop));
-      el.style.opacity = 0;
+      el.style.opacity = 1;
     });
 
     const animatedButtons = document.querySelectorAll(".btn_jittery");
     animatedButtons.forEach((el) => (el.style.animation = "none"));
 
-    const selectedElementOverlay = document.getElementById(`${prop.prop}2`);
+    const selectedElementOverlay = document.getElementById(`${prop.prop}`);
     if (selectedElementOverlay) {
-      selectedElementOverlay.style.opacity = 1;
+      selectedElementOverlay.style.opacity = 0;
     }
   };
 
