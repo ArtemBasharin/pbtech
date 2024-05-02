@@ -110,9 +110,8 @@ const styleCard_portrait = (url) => {
   return { height: "100%", width: "100%", backgroundImage: `url(${url})` };
 };
 
-const styleCard_landscape = {
-  height: "100%",
-  width: "auto",
+const styleCard_landscape = (url) => {
+  return { height: "100%", width: "auto", backgroundImage: `url(${url})` };
 };
 
 function App() {
@@ -168,8 +167,8 @@ function App() {
 
   const handleMouseOver = (prop) => {
     const images = document.querySelectorAll(".picture");
-
     images.forEach((el) => {
+      alert(el.style.backgroundImage);
       el.style.backgroundImage = `${el.style.backgroundImage.replace("2.png", ".png")}`;
     });
 
@@ -178,7 +177,6 @@ function App() {
 
     const selectedElement = document.getElementById(prop.prop);
     if (selectedElement) {
-      console.log(isPortrait);
       selectedElement.style.backgroundImage = `url('${isPortrait ? prop.picH2 : prop.picV2}')`;
     }
   };
@@ -187,16 +185,6 @@ function App() {
     if (!e.relatedTarget.contains(ctaButton)) {
       const selectedElement = document.getElementById(prop.prop);
       if (selectedElement) {
-        // Удаление "2" из имени файла изображения
-        // const img = selectedElement.querySelector("img");
-        // const imgSrc = img.getAttribute("src");
-        // const newImgSrc = imgSrc.replace("2.png", ".png");
-
-        // selectedElement.setAttribute(
-        //   "src",
-        //   isPortrait ? prop.picH1 : prop.picV1
-        // );
-
         const animatedButtons = document.querySelectorAll(".btn_jittery");
         animatedButtons.forEach((el) => {
           el.style.animation = "jittery 6s infinite";
@@ -461,13 +449,11 @@ function App() {
                 <div
                   key={index + "img"}
                   className={`card picture`}
-                  // ${buttonClicked[index] ? "animate__animated animate__hinge" : ""}
                   id={el.prop}
-                  // src={isPortrait ? el.picH : el.picV}
                   style={
                     isPortrait
                       ? styleCard_portrait(el.picH)
-                      : styleCard_landscape
+                      : styleCard_landscape(el.picV)
                   }
                 ></div>
                 <button
