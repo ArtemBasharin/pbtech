@@ -38,8 +38,8 @@ a {
 }
 
 .page {
-  max-width: 1600px;
-  height: 100vh;
+  max-width: 1920px;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
