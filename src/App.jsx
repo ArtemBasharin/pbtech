@@ -111,7 +111,7 @@ const styleCard_portrait = (url) => {
 };
 
 const styleCard_landscape = (url) => {
-  return { height: "100%", width: "auto", backgroundImage: `url(${url})` };
+  return { width: "100%", backgroundImage: `url(${url})` };
 };
 
 function App() {
@@ -119,7 +119,7 @@ function App() {
   let mapRef = useRef();
 
   const [value, setValue] = useState("");
-  const handleChangeBottomMenu = (event, newValue) => {
+  const handleChangeBottomMenu = (newValue) => {
     setValue(newValue);
     if (newValue === "location") {
       handleMapOpen();
@@ -406,7 +406,10 @@ function App() {
               </g>
             </svg>
             <ul className='buttons'>
-              <li className='btn0 btn-1 neon_container' onClick={handleMapOpen}>
+              <li
+                className='btn0 btn-1 neon_container'
+                onClick={() => handleChangeBottomMenu("location")}
+              >
                 <a href='#0'>Где находимся</a>
                 <span></span>
                 <span></span>
@@ -490,27 +493,29 @@ function App() {
             );
           })}
 
-          <BottomNavigation
-            sx={{ width: "100%" }}
-            value={value}
-            onChange={handleChangeBottomMenu}
-          >
-            <BottomNavigationAction
-              label='Где найти'
-              value='location'
-              icon={<LocationOnTwoToneIcon sx={{ fontSize: 30 }} />}
-            />
-            <BottomNavigationAction
-              label='Контакты'
-              value='contacts'
-              icon={<BusinessTwoToneIcon sx={{ fontSize: 30 }} />}
-            />
-            <BottomNavigationAction
-              label='Цены'
-              value='price'
-              icon={<ShoppingCartTwoToneIcon sx={{ fontSize: 30 }} />}
-            />
-          </BottomNavigation>
+          {isPortrait && (
+            <BottomNavigation
+              sx={{ width: "100%" }}
+              value={value}
+              onChange={handleChangeBottomMenu}
+            >
+              <BottomNavigationAction
+                label='Где найти'
+                value='location'
+                icon={<LocationOnTwoToneIcon sx={{ fontSize: 30 }} />}
+              />
+              <BottomNavigationAction
+                label='Контакты'
+                value='contacts'
+                icon={<BusinessTwoToneIcon sx={{ fontSize: 30 }} />}
+              />
+              <BottomNavigationAction
+                label='Цены'
+                value='price'
+                icon={<ShoppingCartTwoToneIcon sx={{ fontSize: 30 }} />}
+              />
+            </BottomNavigation>
+          )}
         </main>
 
         <footer className='footer'>

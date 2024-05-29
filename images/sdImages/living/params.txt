@@ -1,0 +1,7 @@
+modern private house with yellow elements in walls, large windows, parking, clean white background <lora:JJsArchitectureSketch_XL:0.5> <lora:Cute_Drawing:1>
+Negative prompt: green, red, trees, grass, blue, sky, orange, bricks, reflections
+Steps: 60, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 7, Seed: 284216565, Size: 2048x512, Model hash: e6bb9ea85b, Model: sdXL_v10VAEFix, Denoising strength: 0.7, Hires upscale: 2, Hires upscaler: Latent, Lora hashes: "JJsArchitectureSketch_XL: efb770b19924, Cute_Drawing: 7838ccd55b70", Version: 1.9.0
+
+modern private glass, metal house with yellow and light grey elements in walls, fenced courtyard area, glazed loggias, large windows, parking, clean white background <lora:JJsArchitectureSketch_XL:0.32> <lora:Cute_Drawing:1>
+Negative prompt: green, red, trees, grass, blue, sky, orange, bricks, reflections, water, furniture, grey background, yellow background, old walls, old roof, dark
+Steps: 20, Sampler: DPM++ 2M, Schedule type: Automatic, CFG scale: 7, Seed: 3913015811, Size: 894x2048, Model hash: e6bb9ea85b, Model: sdXL_v10VAEFix, Denoising strength: 0.7, Hires schedule type: Karras, Hires upscale: 2, Hires upscaler: Latent, Lora hashes: "JJsArchitectureSketch_XL: efb770b19924, Cute_Drawing: 7838ccd55b70", Version: 1.9.0

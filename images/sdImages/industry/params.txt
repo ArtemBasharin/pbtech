@@ -1,0 +1,7 @@
+sketch, conceptual industrial buildings, chimney, garages in front of constructions, green and gray elements, high contrast, clean white background, sharp bold lines, highly detailed, 8k, sharp, professional, clear, crystal clear <lora:Cute_Drawing:0.8>
+Negative prompt: blue, people, red, brown, trees, grass, yellow, sky, orange, bricks, reflection, water, furniture, old walls, old roof, dark, smoke, gray background
+Steps: 20, Sampler: DPM++ 2M, Schedule type: Karras, CFG scale: 7, Seed: 1109638843, Size: 768x1024, Model hash: e6bb9ea85b, Model: sdXL_v10VAEFix, Lora hashes: "Cute_Drawing: 7838ccd55b70", Version: 1.9.0
+
+sketch, conceptual industrial buildings, chimney, green and gray elements, high contrast, clean white background, sharp bold lines, highly detailed, 8k, sharp, professional, clear, crystal clear <lora:Cute_Drawing:0.8>
+Negative prompt: blue, people, red, brown, tree, grass, yellow, sky, orange, bricks, reflection, water, furniture, old walls, old roof, dark, smoke, gray background
+Steps: 20, Sampler: DPM++ 2M, Schedule type: Automatic, CFG scale: 7, Seed: 1109638846, Size: 2048x512, Model hash: e6bb9ea85b, Model: sdXL_v10VAEFix, Denoising strength: 0.7, Hires schedule type: Karras, Hires upscale: 2, Hires upscaler: Latent, Lora hashes: "Cute_Drawing: 7838ccd55b70", Version: 1.9.0
