@@ -2,10 +2,8 @@
 2.	LINK and BUTTON
 ************************************************/
 .neon_container {
-  width: auto;
+  /* width: auto; */
   position: relative;
-  display: inline-block;
-  padding: 10px 15px;
   /* color: #00fff6; */
   /* text-transform: uppercase; */
   /* letter-spacing: 3px; */
@@ -13,6 +11,7 @@
   /* font-size: 30px; */
   overflow: hidden;
   transition: 0.2s;
+  /* box-sizing: border-box; */
 }
 
 /* .neon_container:visited {
@@ -20,7 +19,7 @@
 } */
 
 .neon_container:hover {
-  border-radius: 15px;
+  border-radius: 10px;
   color: #f7f7f7;
   background: var(--blue);
   /* border-radius: 3px; */
@@ -30,6 +29,7 @@
     0 0 10px #c3eaff,
     0 0 15px #9bbdce;
   transition-delay: 600ms;
+  border: solid 2px transparent;
 }
 
 .neon_container span {
