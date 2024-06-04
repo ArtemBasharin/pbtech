@@ -1,4 +1,6 @@
 @import url("../vendor/normalize.css");
+@import url("../vendor/resetfields.css");
+
 @import url("header.css");
 @import url("cards.css");
 @import url("footer.css");
@@ -8,13 +10,14 @@
 @import url("neonbutton.css");
 @import url("tapmenu.css");
 @import url("../node_modules/animate.css/animate.css");
+@import url("../vendor/fonts/inter.css");
 
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
 
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
   /* --font-serif: Arial, sans-serif; */
   /* --blue: #0077ff; */
   --blue: #0076b6;
@@ -38,20 +41,21 @@ a {
 }
 
 .page {
-  max-width: 1920px;
-  height: 95vh;
+  max-width: 1600px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   margin: 0 auto;
+  padding: 10px;
 }
 
 .page-content {
   position: relative;
-  margin: 0 10px;
   width: 100%;
   height: 100%;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;

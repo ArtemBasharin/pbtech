@@ -68,7 +68,7 @@ const elems = [
     picV2: commercialV2,
     picH2: commercialH2,
     prop: "commercial",
-    title: "Торговые комплексы",
+    title: "Коммерческие объекты",
   },
   {
     picV: designV,
@@ -407,31 +407,31 @@ function App() {
             </svg>
             <ul className='buttons'>
               <li
-                className='btn0 btn-1 neon_container'
+                className='btn0 neon_container'
                 onClick={() => handleChangeBottomMenu("location")}
               >
-                <a href='#0'>Где находимся</a>
+                <a className='link-text' href='#0'>
+                  Где находимся
+                </a>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
               </li>
 
-              <li
-                className='btn0 btn-1 neon_container'
-                onClick={handlePriceOpen}
-              >
-                <a href='#0'>Цены</a>
+              <li className='btn0 neon_container' onClick={handlePriceOpen}>
+                <a className='link-text' href='#0'>
+                  Цены
+                </a>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
               </li>
-              <li
-                className='btn0 btn-1 neon_container'
-                onClick={handleAboutOpen}
-              >
-                <a href='#0'>Контакты</a>
+              <li className='btn0 neon_container' onClick={handleAboutOpen}>
+                <a className='link-text' href='#0'>
+                  Контакты
+                </a>
                 <span></span>
                 <span></span>
                 <span></span>
