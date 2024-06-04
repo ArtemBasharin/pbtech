@@ -119,7 +119,8 @@ function App() {
   let mapRef = useRef();
 
   const [value, setValue] = useState("");
-  const handleChangeBottomMenu = (newValue) => {
+
+  const handleChangeBottomMenu = (event, newValue) => {
     setValue(newValue);
     if (newValue === "location") {
       handleMapOpen();
