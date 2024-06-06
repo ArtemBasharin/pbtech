@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import DG from "2gis-maps";
 import {
   Box,
+  Fab,
   List,
   ListItem,
   ListItemButton,
@@ -17,8 +18,11 @@ import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import BusinessTwoToneIcon from "@mui/icons-material/BusinessTwoTone";
 import LocationOnTwoToneIcon from "@mui/icons-material/LocationOnTwoTone";
 import DrawIcon from "@mui/icons-material/Draw";
+import NavigationIcon from "@mui/icons-material/Navigation";
 
 import * as d3 from "d3";
+
+import { CSSTransition } from "react-transition-group";
 
 import industrialV from "../images/bg_industrial_vertical.png";
 import livingV from "../images/bg_living_vertical.png";
@@ -43,6 +47,7 @@ import livingH2 from "../images/bg_living_horizontal2.png";
 import commercialH2 from "../images/bg_commercial_horizontal2.png";
 import designH2 from "../images/bg_design_horizontal2.png";
 import hiringH2 from "../images/bg_hiring_horizontal2.png";
+import BlogIndustry from "./BlogIndustry";
 // import { LabelBottomNavigation } from "./TapMenu";
 
 const elems = [
@@ -197,6 +202,8 @@ function App() {
   };
 
   const [buttonClicked, setButtonClicked] = useState(new Array(3).fill(false));
+  const [showBlog, setShowBlog] = useState(false);
+  const handleBlogClose = () => setShowBlog(false);
 
   // Функция-обработчик для нажатия кнопки
   const handleClick = (index) => {
@@ -205,6 +212,23 @@ function App() {
     newButtonClicked[index] = !newButtonClicked[index];
     // Устанавливаем новое состояние
     setButtonClicked(newButtonClicked);
+
+    switch (index) {
+      case 0:
+        setShowBlog((prevState) => !prevState);
+        break;
+      // case 1:
+      //   setShowBlog2(prevState => !prevState);
+      //   break;
+      // case 2:
+      //   setShowBlog3(prevState => !prevState);
+      //   break;
+      // case 3:
+      //   setShowBlog4(prevState => !prevState);
+      //   break;
+      default:
+        break;
+    }
   };
 
   let ctaButton = document.querySelector(".btn_jittery");
@@ -222,7 +246,7 @@ function App() {
       document.documentElement.style.setProperty("--vw", `${vw}px`);
       const newIsPortrait = vh > vw;
       setIsPortrait(newIsPortrait);
-      console.log(newIsPortrait);
+      // console.log(newIsPortrait);
     };
 
     window.addEventListener("resize", updateOrientation);
@@ -630,6 +654,31 @@ function App() {
       <div className='popup_map'></div>
       <div className='popup_about'></div>
       <div className='popup_price'></div>
+
+      <CSSTransition
+        in={showBlog}
+        timeout={300}
+        classNames='fade'
+        unmountOnExit
+      >
+        <>
+          <BlogIndustry />
+          <Fab
+            variant='extended'
+            sx={{
+              position: "fixed",
+              bottom: 25, // Положение от нижнего края экрана
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1000, // Высокий z-index, чтобы кнопка была поверх других элементов
+            }}
+            onClick={handleBlogClose}
+          >
+            <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
+            Назад
+          </Fab>
+        </>
+      </CSSTransition>
     </>
   );
 }

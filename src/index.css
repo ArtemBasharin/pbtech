@@ -1,14 +1,16 @@
 @import url("../vendor/normalize.css");
 @import url("../vendor/resetfields.css");
 
-@import url("header.css");
-@import url("cards.css");
-@import url("footer.css");
+@import url("./styles/header.css");
+@import url("./styles/cards.css");
+@import url("./styles/footer.css");
 /* @import url('neumorfics.css'); */
-@import url("socials.css");
-@import url("buttonCTA.css");
-@import url("neonbutton.css");
-@import url("tapmenu.css");
+@import url("./styles/socials.css");
+@import url("./styles/buttonCTA.css");
+@import url("./styles/neonbutton.css");
+@import url("./styles/tapmenu.css");
+@import url("./styles/blog.css");
+
 @import url("../node_modules/animate.css/animate.css");
 @import url("../vendor/fonts/inter.css");
 
