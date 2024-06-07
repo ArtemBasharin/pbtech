@@ -265,7 +265,15 @@ function App() {
       document.documentElement.style.setProperty("--vw", `${vw}px`);
       const newIsPortrait = vh > vw;
       setIsPortrait(newIsPortrait);
-      // console.log(newIsPortrait);
+
+      if (showBlogIndustry) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+      return () => {
+        document.body.style.overflow = "auto";
+      };
     };
 
     window.addEventListener("resize", updateOrientation);
@@ -294,7 +302,7 @@ function App() {
     //   window.removeEventListener("resize", updateOrientation);
     //   window.removeEventListener("orientationchange", hideAddressBar);
     // };
-  }, [mapRef]);
+  }, [mapRef, showBlogIndustry]);
 
   // const toggleDrawer = (anchor, open) => (event) => {
   //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
