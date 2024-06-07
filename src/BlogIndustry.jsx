@@ -1,13 +1,3 @@
-// import { useEffect } from "react";
-// import { Swiper } from 'swiper/react';
-// Swiper.use([Pagination, Mousewheel]);
-
-// import "swiper/css/bundle";
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
-// import "swiper/swiper-bundle.min.css";
-
 const BlogIndustry = () => {
   return (
     <div className='blog_body'>

@@ -1,3 +1,28 @@
+/* CSS transition styles */
+
+.slide-enter {
+  transform: translateX(100%);
+  opacity: 1;
+}
+.slide-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition:
+    transform 500ms,
+    opacity 500ms;
+}
+.slide-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-exit-active {
+  transform: translateX(100%);
+  opacity: 1;
+  transition:
+    transform 500ms,
+    opacity 500ms;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
 
@@ -188,6 +213,18 @@ section:last-child {
 
 /* Media Queries */
 /**************************/
+@media only screen and (orientation: portrait) {
+  #parallax-world-of-ugg .blog_title h1 {
+    font-size: 1.5em;
+    letter-spacing: 6px;
+    font-weight: bolder;
+  }
+
+  #parallax-world-of-ugg .blog_title h3 {
+    font-size: 0.9em;
+  }
+}
+
 @media screen and (max-width: 959px) and (min-width: 768px) {
   #parallax-world-of-ugg .block {
     padding: 40px;

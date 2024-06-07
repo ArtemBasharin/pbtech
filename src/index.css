@@ -25,6 +25,10 @@
   --blue: #0076b6;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -65,11 +69,6 @@ a {
 }
 
 @media only screen and (max-width: 768px) and (orientation: portrait) {
-  .page {
-    height: var(--vh, 90vh);
-    width: 100%;
-  }
-
   .page-content {
     flex-direction: column;
   }

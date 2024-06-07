@@ -47,7 +47,12 @@ import livingH2 from "../images/bg_living_horizontal2.png";
 import commercialH2 from "../images/bg_commercial_horizontal2.png";
 import designH2 from "../images/bg_design_horizontal2.png";
 import hiringH2 from "../images/bg_hiring_horizontal2.png";
+
 import BlogIndustry from "./BlogIndustry";
+import BlogLiving from "./BlogLiving";
+import BlogCommercial from "./BlogCommercial";
+import BlogDesign from "./BlogDesign";
+import BlogHiring from "./BlogHiring";
 // import { LabelBottomNavigation } from "./TapMenu";
 
 const elems = [
@@ -202,8 +207,20 @@ function App() {
   };
 
   const [buttonClicked, setButtonClicked] = useState(new Array(3).fill(false));
-  const [showBlog, setShowBlog] = useState(false);
-  const handleBlogClose = () => setShowBlog(false);
+
+  const [showBlogIndustry, setShowBlogIndustry] = useState(false);
+  const [showBlogLiving, setShowBlogLiving] = useState(false);
+  const [showBlogCommercial, setShowBlogCommercial] = useState(false);
+  const [showBlogDesign, setShowBlogDesign] = useState(false);
+  const [showBlogHiring, setShowBlogHiring] = useState(false);
+
+  const handleBlogClose = () => {
+    setShowBlogIndustry(false);
+    setShowBlogLiving(false);
+    setShowBlogCommercial(false);
+    setShowBlogDesign(false);
+    setShowBlogHiring(false);
+  };
 
   // Функция-обработчик для нажатия кнопки
   const handleClick = (index) => {
@@ -215,17 +232,20 @@ function App() {
 
     switch (index) {
       case 0:
-        setShowBlog((prevState) => !prevState);
+        setShowBlogIndustry((prevState) => !prevState);
         break;
-      // case 1:
-      //   setShowBlog2(prevState => !prevState);
-      //   break;
-      // case 2:
-      //   setShowBlog3(prevState => !prevState);
-      //   break;
-      // case 3:
-      //   setShowBlog4(prevState => !prevState);
-      //   break;
+      case 1:
+        setShowBlogLiving((prevState) => !prevState);
+        break;
+      case 2:
+        setShowBlogCommercial((prevState) => !prevState);
+        break;
+      case 3:
+        setShowBlogDesign((prevState) => !prevState);
+        break;
+      case 4:
+        setShowBlogHiring((prevState) => !prevState);
+        break;
       default:
         break;
     }
@@ -656,13 +676,113 @@ function App() {
       <div className='popup_price'></div>
 
       <CSSTransition
-        in={showBlog}
-        timeout={300}
-        classNames='fade'
+        in={showBlogIndustry}
+        timeout={500}
+        classNames='slide'
         unmountOnExit
       >
         <>
           <BlogIndustry />
+          <Fab
+            variant='extended'
+            sx={{
+              position: "fixed",
+              bottom: 25,
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1000,
+            }}
+            onClick={handleBlogClose}
+          >
+            <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
+            Назад
+          </Fab>
+        </>
+      </CSSTransition>
+
+      <CSSTransition
+        in={showBlogLiving}
+        timeout={500}
+        classNames='slide'
+        unmountOnExit
+      >
+        <>
+          <BlogLiving />
+          <Fab
+            variant='extended'
+            sx={{
+              position: "fixed",
+              bottom: 25, // Положение от нижнего края экрана
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1000, // Высокий z-index, чтобы кнопка была поверх других элементов
+            }}
+            onClick={handleBlogClose}
+          >
+            <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
+            Назад
+          </Fab>
+        </>
+      </CSSTransition>
+
+      <CSSTransition
+        in={showBlogCommercial}
+        timeout={500}
+        classNames='slide'
+        unmountOnExit
+      >
+        <>
+          <BlogCommercial />
+          <Fab
+            variant='extended'
+            sx={{
+              position: "fixed",
+              bottom: 25, // Положение от нижнего края экрана
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1000, // Высокий z-index, чтобы кнопка была поверх других элементов
+            }}
+            onClick={handleBlogClose}
+          >
+            <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
+            Назад
+          </Fab>
+        </>
+      </CSSTransition>
+
+      <CSSTransition
+        in={showBlogDesign}
+        timeout={500}
+        classNames='slide'
+        unmountOnExit
+      >
+        <>
+          <BlogDesign />
+          <Fab
+            variant='extended'
+            sx={{
+              position: "fixed",
+              bottom: 25, // Положение от нижнего края экрана
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1000, // Высокий z-index, чтобы кнопка была поверх других элементов
+            }}
+            onClick={handleBlogClose}
+          >
+            <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
+            Назад
+          </Fab>
+        </>
+      </CSSTransition>
+
+      <CSSTransition
+        in={showBlogHiring}
+        timeout={500}
+        classNames='slide'
+        unmountOnExit
+      >
+        <>
+          <BlogHiring />
           <Fab
             variant='extended'
             sx={{
