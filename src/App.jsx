@@ -173,16 +173,12 @@ function App() {
     }, 500);
   };
 
-  let screenWidth = screen.width;
-  let screenHeight = screen.height;
-  const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
+  // const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
 
+  //проявляет картинку второго слоя
   const handleMouseOver = (prop) => {
     const images = document.querySelectorAll(".picture");
     images.forEach((el) => {
-      // alert(el.style.backgroundImage);
-      console.log(el);
-      // console.log(elems.find((el) => el.prop === prop.prop));
       el.style.opacity = 1;
     });
 
@@ -251,8 +247,10 @@ function App() {
   };
 
   let ctaButton = document.querySelector(".btn_jittery");
+
   let vh = window.innerHeight / 100;
   let vw = window.innerWidth / 100;
+  let isPortrait = vh > vw;
 
   useEffect(() => {
     pageRef && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
@@ -260,33 +258,36 @@ function App() {
       d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
     pageRef && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
 
-    const updateOrientation = () => {
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-      document.documentElement.style.setProperty("--vw", `${vw}px`);
-      setIsPortrait(vh > vw);
-    };
+    //   let screenWidth = screen.width;
+    // let screenHeight = screen.height;
 
-    window.addEventListener("resize", updateOrientation);
+    // const updateOrientation = () => {
+    //   document.documentElement.style.setProperty("--vh", `${vh}px`);
+    //   document.documentElement.style.setProperty("--vw", `${vw}px`);
+    //   setIsPortrait(vh > vw);
+    // };
 
-    function hideAddressBar() {
-      if (!window.location.hash) {
-        if (document.height < window.outerHeight) {
-          document.body.style.height = window.outerHeight + 50 + "px";
-        }
+    // window.addEventListener("resize", updateOrientation);
 
-        setTimeout(function () {
-          window.scrollTo(0, 1);
-        }, 50);
-      }
-    }
+    // function hideAddressBar() {
+    //   if (!window.location.hash) {
+    //     if (document.height < window.outerHeight) {
+    //       document.body.style.height = window.outerHeight + 50 + "px";
+    //     }
 
-    window.addEventListener("load", function () {
-      if (!window.scrollY) {
-        hideAddressBar();
-      }
-    });
+    //     setTimeout(function () {
+    //       window.scrollTo(0, 1);
+    //     }, 50);
+    //   }
+    // }
 
-    window.addEventListener("orientationchange", hideAddressBar);
+    // window.addEventListener("load", function () {
+    //   if (!window.scrollY) {
+    //     hideAddressBar();
+    //   }
+    // });
+
+    // window.addEventListener("orientationchange", hideAddressBar);
 
     // return () => {
     //   window.removeEventListener("resize", updateOrientation);
