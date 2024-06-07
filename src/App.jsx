@@ -263,17 +263,7 @@ function App() {
     const updateOrientation = () => {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
-      const newIsPortrait = vh > vw;
-      setIsPortrait(newIsPortrait);
-
-      if (showBlogIndustry) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "auto";
-      }
-      return () => {
-        document.body.style.overflow = "auto";
-      };
+      setIsPortrait(vh > vw);
     };
 
     window.addEventListener("resize", updateOrientation);
@@ -302,6 +292,15 @@ function App() {
     //   window.removeEventListener("resize", updateOrientation);
     //   window.removeEventListener("orientationchange", hideAddressBar);
     // };
+
+    if (showBlogIndustry) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [mapRef, showBlogIndustry, vh, vw]);
 
   // const toggleDrawer = (anchor, open) => (event) => {
