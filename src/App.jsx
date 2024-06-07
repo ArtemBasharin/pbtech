@@ -251,6 +251,8 @@ function App() {
   };
 
   let ctaButton = document.querySelector(".btn_jittery");
+  let vh = window.innerHeight / 100;
+  let vw = window.innerWidth / 100;
 
   useEffect(() => {
     pageRef && d3.select("#letters").selectAll("path").style("fill", "#f8f8f8");
@@ -259,8 +261,6 @@ function App() {
     pageRef && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
 
     const updateOrientation = () => {
-      let vh = window.innerHeight / 100;
-      let vw = window.innerWidth / 100;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
       document.documentElement.style.setProperty("--vw", `${vw}px`);
       const newIsPortrait = vh > vw;
@@ -302,7 +302,7 @@ function App() {
     //   window.removeEventListener("resize", updateOrientation);
     //   window.removeEventListener("orientationchange", hideAddressBar);
     // };
-  }, [mapRef, showBlogIndustry]);
+  }, [mapRef, showBlogIndustry, vh, vw]);
 
   // const toggleDrawer = (anchor, open) => (event) => {
   //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
