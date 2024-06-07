@@ -5,14 +5,16 @@ const BlogHiring = () => {
         <section>
           <div className='blog_title'>
             <h1>ОТКРЫТЫЕ ВАКАНСИИ</h1>
-            <h3>и требования к сотрудникам</h3>
+            <h3>требования </h3>
+            <h3>к соискателю</h3>
           </div>
         </section>
 
         <section>
           <div className='parallax-one'>
-            <h2>ЖИЛОЙ </h2>
-            <h2>ДОМ</h2>
+            <h2>ПРОЕКТИРОВЩИК </h2>
+            <h2>СИСТЕМ</h2>
+            <h2>ВОДОСНАБЖЕНИЯ</h2>
           </div>
         </section>
 

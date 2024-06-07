@@ -19,7 +19,7 @@ const BlogIndustry = () => {
         <section>
           <div className='block'>
             <p>
-              <span className='first-character sc'>В</span>В небольшом, но
+              <span className='first-character sc'>В</span>небольшом, но
               амбициозном бюро, располагавшемся в центре современного
               мегаполиса, царил дух инноваций и творчества. В коллективе были
               собраны талантливые архитекторы, инженеры и дизайнеры, каждый из

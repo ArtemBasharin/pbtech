@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import DG from "2gis-maps";
 import {
   Box,
+  Drawer,
   Fab,
   List,
   ListItem,
@@ -22,7 +23,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 
 import * as d3 from "d3";
 
-import { CSSTransition } from "react-transition-group";
+// import { CSSTransition } from "react-transition-group";
 
 import industrialV from "../images/bg_industrial_vertical.png";
 import livingV from "../images/bg_living_vertical.png";
@@ -246,8 +247,6 @@ function App() {
       case 4:
         setShowBlogHiring((prevState) => !prevState);
         break;
-      default:
-        break;
     }
   };
 
@@ -296,6 +295,14 @@ function App() {
     //   window.removeEventListener("orientationchange", hideAddressBar);
     // };
   }, [mapRef]);
+
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  //     return;
+  //   }
+
+  //   setState({ ...state, [anchor]: open });
+  // };
 
   return (
     <>
@@ -675,13 +682,8 @@ function App() {
       <div className='popup_about'></div>
       <div className='popup_price'></div>
 
-      <CSSTransition
-        in={showBlogIndustry}
-        timeout={500}
-        classNames='slide'
-        unmountOnExit
-      >
-        <>
+      <Drawer anchor={"left"} open={showBlogIndustry} onClose={handleBlogClose}>
+        <div className='blog_box'>
           <BlogIndustry />
           <Fab
             variant='extended'
@@ -690,23 +692,18 @@ function App() {
               bottom: 25,
               left: "50%",
               transform: "translateX(-50%)",
-              zIndex: 1000,
+              zIndex: 2000,
             }}
             onClick={handleBlogClose}
           >
             <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
             Назад
           </Fab>
-        </>
-      </CSSTransition>
+        </div>
+      </Drawer>
 
-      <CSSTransition
-        in={showBlogLiving}
-        timeout={500}
-        classNames='slide'
-        unmountOnExit
-      >
-        <>
+      <Drawer anchor={"left"} open={showBlogLiving} onClose={handleBlogClose}>
+        <div className='blog_box'>
           <BlogLiving />
           <Fab
             variant='extended'
@@ -722,16 +719,15 @@ function App() {
             <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
             Назад
           </Fab>
-        </>
-      </CSSTransition>
+        </div>
+      </Drawer>
 
-      <CSSTransition
-        in={showBlogCommercial}
-        timeout={500}
-        classNames='slide'
-        unmountOnExit
+      <Drawer
+        anchor={"left"}
+        open={showBlogCommercial}
+        onClose={handleBlogClose}
       >
-        <>
+        <div className='blog_box'>
           <BlogCommercial />
           <Fab
             variant='extended'
@@ -747,16 +743,11 @@ function App() {
             <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
             Назад
           </Fab>
-        </>
-      </CSSTransition>
+        </div>
+      </Drawer>
 
-      <CSSTransition
-        in={showBlogDesign}
-        timeout={500}
-        classNames='slide'
-        unmountOnExit
-      >
-        <>
+      <Drawer anchor={"left"} open={showBlogDesign} onClose={handleBlogClose}>
+        <div className='blog_box'>
           <BlogDesign />
           <Fab
             variant='extended'
@@ -772,16 +763,11 @@ function App() {
             <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
             Назад
           </Fab>
-        </>
-      </CSSTransition>
+        </div>
+      </Drawer>
 
-      <CSSTransition
-        in={showBlogHiring}
-        timeout={500}
-        classNames='slide'
-        unmountOnExit
-      >
-        <>
+      <Drawer anchor={"left"} open={showBlogHiring} onClose={handleBlogClose}>
+        <div className='blog_box'>
           <BlogHiring />
           <Fab
             variant='extended'
@@ -797,8 +783,8 @@ function App() {
             <NavigationIcon sx={{ mr: 1, transform: "rotate(270deg)" }} />
             Назад
           </Fab>
-        </>
-      </CSSTransition>
+        </div>
+      </Drawer>
     </>
   );
 }
