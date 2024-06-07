@@ -294,15 +294,15 @@ function App() {
     //   window.removeEventListener("orientationchange", hideAddressBar);
     // };
 
-    const fixedBlock = pageRef.current;
-    if (fixedBlock) {
-      const preventScroll = (e) => e.preventDefault();
-      fixedBlock.addEventListener("wheel", preventScroll, { passive: false });
+    // const fixedBlock = pageRef.current;
+    // if (fixedBlock) {
+    //   const preventScroll = (e) => e.preventDefault();
+    //   fixedBlock.addEventListener("wheel", preventScroll, { passive: false });
 
-      return () => {
-        fixedBlock.removeEventListener("wheel", preventScroll);
-      };
-    }
+    //   return () => {
+    //     fixedBlock.removeEventListener("wheel", preventScroll);
+    //   };
+    // }
   }, [mapRef, showBlogIndustry, vh, vw]);
 
   // const toggleDrawer = (anchor, open) => (event) => {
