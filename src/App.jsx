@@ -293,14 +293,15 @@ function App() {
     //   window.removeEventListener("orientationchange", hideAddressBar);
     // };
 
-    if (showBlogIndustry) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
+    const fixedBlock = pageRef.current;
+    if (fixedBlock) {
+      const preventScroll = (e) => e.preventDefault();
+      fixedBlock.addEventListener("wheel", preventScroll, { passive: false });
+
+      return () => {
+        fixedBlock.removeEventListener("wheel", preventScroll);
+      };
     }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
   }, [mapRef, showBlogIndustry, vh, vw]);
 
   // const toggleDrawer = (anchor, open) => (event) => {
@@ -313,7 +314,14 @@ function App() {
 
   return (
     <>
-      <div className='page' ref={pageRef}>
+      <div
+        className='page'
+        ref={pageRef}
+        style={{
+          position: "fixed",
+          overflow: "hidden",
+        }}
+      >
         <header className='container_header'>
           <div className='header_group'>
             <svg
