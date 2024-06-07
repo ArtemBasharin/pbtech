@@ -212,6 +212,7 @@ function App() {
   const [showBlogHiring, setShowBlogHiring] = useState(false);
 
   const handleBlogClose = () => {
+    window.history.back();
     setShowBlogIndustry(false);
     setShowBlogLiving(false);
     setShowBlogCommercial(false);
@@ -221,6 +222,7 @@ function App() {
 
   // Функция-обработчик для нажатия кнопки
   const handleClick = (index) => {
+    window.history.pushState({ showBlogIndustry: true }, "");
     // Создаем новый массив, изменяя состояние только для нажатой кнопки
     const newButtonClicked = [...buttonClicked];
     newButtonClicked[index] = !newButtonClicked[index];
@@ -303,6 +305,18 @@ function App() {
     //     fixedBlock.removeEventListener("wheel", preventScroll);
     //   };
     // }
+
+    const handlePopState = (event) => {
+      // Если пользователь нажал кнопку "Назад" и showBlogIndustry открыто, выполняем handleBlogClose
+      if (event.state && event.state.showBlogIndustry) {
+        setShowBlogIndustry(false);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, [mapRef, showBlogIndustry, vh, vw]);
 
   // const toggleDrawer = (anchor, open) => (event) => {
