@@ -101,8 +101,6 @@ const elems = [
 
 const stylePopup = {
   position: "absolute",
-  // margin: "auto",
-  // transform: "translate(0, 50%)",
   left: 0,
   right: 0,
   top: 0,
@@ -220,13 +218,10 @@ function App() {
     setShowBlogHiring(false);
   };
 
-  // Функция-обработчик для нажатия кнопки
   const handleClick = (index) => {
     window.history.pushState({ showBlogIndustry: true }, "");
-    // Создаем новый массив, изменяя состояние только для нажатой кнопки
     const newButtonClicked = [...buttonClicked];
     newButtonClicked[index] = !newButtonClicked[index];
-    // Устанавливаем новое состояние
     setButtonClicked(newButtonClicked);
 
     switch (index) {
@@ -756,6 +751,15 @@ function App() {
         anchor={"left"}
         open={showBlogCommercial}
         onClose={handleBlogClose}
+        PaperProps={{
+          sx: { width: "100%" },
+        }}
+        transitionDuration={{
+          // Настройка скорости анимации выдвижения
+          appear: 500,
+          enter: 500, // Время анимации при открытии (в миллисекундах)
+          exit: 800, // Время анимации при закрытии (в миллисекундах)
+        }}
       >
         <div className='blog_box'>
           <BlogCommercial />
@@ -796,7 +800,14 @@ function App() {
         </div>
       </Drawer>
 
-      <Drawer anchor={"left"} open={showBlogHiring} onClose={handleBlogClose}>
+      <Drawer
+        anchor={"left"}
+        open={showBlogHiring}
+        onClose={handleBlogClose}
+        PaperProps={{
+          sx: { width: "100%" },
+        }}
+      >
         <div className='blog_box'>
           <BlogHiring />
           <Fab
