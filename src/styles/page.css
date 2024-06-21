@@ -1,31 +1,13 @@
-@import url("../vendor/normalize.css");
-@import url("../vendor/resetfields.css");
-
-@import url("./styles/header.css");
-@import url("./styles/cards.css");
-@import url("./styles/footer.css");
-/* @import url('neumorfics.css'); */
-@import url("./styles/socials.css");
-@import url("./styles/buttonCTA.css");
-@import url("./styles/neonbutton.css");
-@import url("./styles/tapmenu.css");
-@import url("./styles/blog.css");
-
-@import url("../node_modules/animate.css/animate.css");
-@import url("../vendor/fonts/inter.css");
-
-@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
-
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  font-family: "Inter", sans-serif;
+  --blue: #0076b6;
   /* --font-serif: Arial, sans-serif; */
   /* --blue: #0077ff; */
-  --blue: #0076b6;
 }
 
 body {
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
 

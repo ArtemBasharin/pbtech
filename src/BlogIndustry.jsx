@@ -1,83 +1,67 @@
+import { useEffect, useRef } from "react";
+
 const BlogIndustry = () => {
+  const headerRef = useRef(null);
+  const footerRef = useRef(null);
+  const contentRef = useRef(null);
+  const scrollAnimateRef = useRef(null);
+  const scrollAnimateMainRef = useRef(null);
+
+  useEffect(() => {
+    const windowHeight = window.innerHeight;
+    const footerElement = footerRef.current;
+    const contentElement = contentRef.current;
+    const scrollAnimateElement = scrollAnimateRef.current;
+    const scrollAnimateMainElement = scrollAnimateMainRef.current;
+    const headerElement = headerRef.current;
+
+    const footerHeight = footerElement.offsetHeight;
+    const heightDocument =
+      windowHeight + contentElement.offsetHeight + footerHeight - 20;
+
+    scrollAnimateElement.style.height = `${heightDocument}px`;
+    scrollAnimateMainElement.style.height = `${heightDocument}px`;
+
+    headerElement.style.height = `${windowHeight}px`;
+    headerElement.style.lineHeight = `${windowHeight}px`;
+
+    document.querySelector(".wrapper-parallax").style.marginTop =
+      `${windowHeight}px`;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      scrollAnimateMainElement.style.top = `-${scrollY}px`;
+      headerElement.style.backgroundPositionY = `${50 - (scrollY * 100) / heightDocument}%`;
+
+      if (scrollY >= footerHeight) {
+        footerElement.style.bottom = "0px";
+      } else {
+        footerElement.style.bottom = `-${footerHeight}px`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='blog_body'>
-      <div id='parallax-world-of-ugg' className='blog_container'>
-        <section>
-          <div className='blog_title'>
-            <h1>ПРОМЫШЛЕННЫЕ</h1>
-            <h3>объекты и здания</h3>
-          </div>
-        </section>
-
-        <section>
-          <div className='parallax-one'>
-            <h2>ЦЕМЕНТНЫЙ </h2>
-            <h2> ЗАВОД</h2>
-          </div>
-        </section>
-
-        <section>
-          <div className='block'>
-            <p>
-              <span className='first-character sc'>В</span>небольшом, но
-              амбициозном бюро, располагавшемся в центре современного
-              мегаполиса, царил дух инноваций и творчества. В коллективе были
-              собраны талантливые архитекторы, инженеры и дизайнеры, каждый из
-              которых стремился оставить свой след в истории архитектуры.
-              Однажды, креативный директор бюро, Алексей Соколов, получил
-              неожиданный звонок. На другом конце линии был представитель
-              крупной строительной компании, специализирующейся на производстве
-              цемента. Компания планировала построить новый цементный завод,
-              который должен был стать эталоном не только производительности, но
-              и дизайна, гармонично вписавшись в окружающую природу.
-            </p>
-          </div>
-        </section>
-
-        <section>
-          <div className='parallax-two'>
-            <h2>АСФАЛЬТНЫЙ </h2>
-            <h2> ЗАВОД</h2>
-          </div>
-        </section>
-
-        <section>
-          <div className='block'>
-            <p>
-              <span className='first-character ny'>П</span>роект начинался с
-              тщательного анализа. Руководитель студии, Мария Петрова, собрала
-              команду для изучения всех аспектов будущего завода. Они
-              исследовали участок земли, выделенный под строительство, чтобы
-              понять его особенности: тип почвы, климатические условия и
-              близость к транспортным путям. Инженеры провели расчеты, чтобы
-              определить оптимальные размеры и расположение производственных
-              зданий, складов и административного корпуса. Экологи оценили
-              возможное воздействие завода на окружающую среду и предложили меры
-              по минимизации негативного влияния.
-            </p>
-          </div>
-        </section>
-
-        <section>
-          <div className='parallax-three'>
-            <h2>АЭРОПОРТ</h2>
-          </div>
-        </section>
-
-        <section>
-          <div className='block'>
-            <p>
-              <span className='first-character atw'>А</span>рхитекторы
-              разработали проект, включающий современные терминалы с обширными
-              стеклянными фасадами, обеспечивающими максимальное естественное
-              освещение. Внутренние пространства должны быть просторными и
-              удобными, с четкой навигацией и зонами отдыха для пассажиров.
-              Специалисты по ландшафтному дизайну предложили создать зеленые
-              зоны как внутри терминалов, так и снаружи, чтобы подчеркнуть
-              экологическую направленность проекта.
-            </p>
-          </div>
-        </section>
+    <div id='scroll-animate' ref={scrollAnimateRef}>
+      <div id='scroll-animate-main' ref={scrollAnimateMainRef}>
+        <div className='wrapper-parallax'>
+          <header ref={headerRef} className='blog_header'>
+            <h1>Header</h1>
+          </header>
+          <section className='blog_content' ref={contentRef}>
+            <h1>Content</h1>
+          </section>
+          <footer ref={footerRef} className='blog_footer'>
+            <h1>Footer</h1>
+          </footer>
+        </div>
       </div>
     </div>
   );
