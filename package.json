@@ -13,17 +13,21 @@
     "@2gis/mapgl": "1.45.2",
     "@emotion/react": "11.11.4",
     "@emotion/styled": "11.11.0",
+    "@gsap/react": "^2.1.1",
     "@mui/icons-material": "5.15.11",
     "@mui/material": "5.15.11",
     "2gis-maps": "3.7.3",
     "animate.css": "4.1.1",
     "d3": "7.8.5",
-    "gsap": "3.12.5",
+    "gsap": "^3.12.5",
     "kute.js": "2.2.4",
+    "locomotive-scroll": "^4.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-lazyload": "^3.2.1",
     "react-transition-group": "^4.4.5",
+    "scrollmagic": "^2.0.8",
+    "scrollmagic-plugin-gsap": "^1.0.4",
     "swiper": "^11.1.4",
     "three.js": "0.77.1"
   },
@@ -36,6 +40,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.5",
     "prettier": "3.2.5",
+    "sass": "^1.77.6",
     "vite": "5.1.0"
   }
 }

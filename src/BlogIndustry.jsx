@@ -1,70 +1,114 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import ScrollMagic from "scrollmagic";
+import { gsap, Power2 } from "gsap";
+import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+ScrollMagicPluginGsap(ScrollMagic, gsap);
 
-const BlogIndustry = () => {
-  const headerRef = useRef(null);
-  const footerRef = useRef(null);
-  const contentRef = useRef(null);
-  const scrollAnimateRef = useRef(null);
-  const scrollAnimateMainRef = useRef(null);
-
+const ScrollMagicComponent = () => {
   useEffect(() => {
-    const windowHeight = window.innerHeight;
-    const footerElement = footerRef.current;
-    const contentElement = contentRef.current;
-    const scrollAnimateElement = scrollAnimateRef.current;
-    const scrollAnimateMainElement = scrollAnimateMainRef.current;
-    const headerElement = headerRef.current;
+    const controller = new ScrollMagic.Controller();
 
-    const footerHeight = footerElement.offsetHeight;
-    const heightDocument =
-      windowHeight + contentElement.offsetHeight + footerHeight - 20;
+    document.querySelectorAll("[data-scrollmagic]").forEach((elem) => {
+      const title = elem.querySelector("h3");
+      const text = elem.querySelector("p");
+      const btn = elem.querySelector("a");
+      console.log(title, text, btn);
+      // create tween
+      const tl = gsap.timeline({ paused: true });
+      tl.add("start")
+        .fromTo(
+          title,
+          { y: "40px", opacity: 0 },
+          { y: 0, opacity: 1, ease: Power2.easeInOut },
+          "start"
+        )
+        .fromTo(
+          text,
+          { y: "60px", opacity: 0 },
+          { y: 0, opacity: 1, ease: Power2.easeInOut },
+          "start"
+        )
+        .fromTo(
+          btn,
+          { y: "100px", opacity: 0 },
+          { y: 0, opacity: 1, ease: Power2.easeInOut },
+          "start"
+        );
 
-    scrollAnimateElement.style.height = `${heightDocument}px`;
-    scrollAnimateMainElement.style.height = `${heightDocument}px`;
+      new ScrollMagic.Scene({
+        triggerElement: elem,
+        offset: 0,
+      })
+        .setTween(tl)
+        .addTo(controller)
+        .addIndicators();
+    });
 
-    headerElement.style.height = `${windowHeight}px`;
-    headerElement.style.lineHeight = `${windowHeight}px`;
-
-    document.querySelector(".wrapper-parallax").style.marginTop =
-      `${windowHeight}px`;
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      scrollAnimateMainElement.style.top = `-${scrollY}px`;
-      headerElement.style.backgroundPositionY = `${50 - (scrollY * 100) / heightDocument}%`;
-
-      if (scrollY >= footerHeight) {
-        footerElement.style.bottom = "0px";
-      } else {
-        footerElement.style.bottom = `-${footerHeight}px`;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => controller.destroy(true);
   }, []);
 
   return (
-    <div id='scroll-animate' ref={scrollAnimateRef}>
-      <div id='scroll-animate-main' ref={scrollAnimateMainRef}>
-        <div className='wrapper-parallax'>
-          <header ref={headerRef} className='blog_header'>
-            <h1>Header</h1>
-          </header>
-          <section className='blog_content' ref={contentRef}>
-            <h1>Content</h1>
-          </section>
-          <footer ref={footerRef} className='blog_footer'>
-            <h1>Footer</h1>
-          </footer>
-        </div>
-      </div>
+    <div>
+      <header className='header_blog'>
+        <article>
+          <h1>Опыт проектирования промышленных объектов</h1>
+          {/* <p>Lets start showing off some magic...</p> */}
+        </article>
+      </header>
+      <main>
+        <section className='section'>
+          <div className='section__left'></div>
+          <div className='section__right'>
+            <article data-scrollmagic>
+              <h3>
+                The weather started getting rough — the tiny ship was tossed.
+              </h3>
+              <p>
+                If not for the courage of the fearless crew the Minnow would be
+                lost. the Minnow would be lost? The Brady Bunch the Brady Bunch
+                thats the way we all became the Brady Bunch.
+              </p>
+            </article>
+          </div>
+        </section>
+        <section className='section'>
+          <div className='section__left'>
+            <article data-scrollmagic>
+              <h3>
+                Its mission — to explore strange new worlds to seek out new life
+              </h3>
+              <p>
+                In a freak mishap Ranger 3 and its pilot Captain William Buck
+                Rogers are blown out of their trajectory into an orbit which
+                freezes his life support systems and returns Buck Rogers to
+                Earth five-hundred years later.
+              </p>
+            </article>
+          </div>
+          <div className='section__right'></div>
+        </section>
+        <section className='section'>
+          <div className='section__left'></div>
+          <div className='section__right'>
+            <article data-scrollmagic>
+              <h3>
+                The weather started getting rough — the tiny ship was tossed.
+              </h3>
+              <p>
+                If not for the courage of the fearless crew the Minnow would be
+                lost. the Minnow would be lost? The Brady Bunch the Brady Bunch
+                thats the way we all became the Brady Bunch.
+              </p>
+              <a href='#' className='btn btn--ghost'>
+                Позвонить
+              </a>
+            </article>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
 
-export default BlogIndustry;
+export default ScrollMagicComponent;
