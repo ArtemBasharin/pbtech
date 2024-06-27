@@ -13,7 +13,6 @@ const ScrollMagicComponent = () => {
       const title = elem.querySelector("h3");
       const text = elem.querySelector("p");
       const btn = elem.querySelector("a");
-      console.log(title, text, btn);
       // create tween
       const tl = gsap.timeline({ paused: true });
       tl.add("start")

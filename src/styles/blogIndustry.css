@@ -1,13 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-#open_sans {
-  font-family: "Open Sans";
-  /* font-weight: 700; */
-}
-
-#merriweather {
-  font-family: "Merriweather", serif;
-}
 
 .flex,
 .header_blog,
@@ -69,8 +61,8 @@
   padding-right: 16.66667%;
   box-sizing: border-box;
   position: relative;
-  background-size: cover; /* Изображение масштабируется, чтобы покрыть элемент */
-  background-position: center; /* Изображение центрируется */
+  background-size: cover;
+  background-position: center;
 }
 .section:before {
   position: absolute;

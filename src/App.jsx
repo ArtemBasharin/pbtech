@@ -131,6 +131,7 @@ function App() {
 
   const handleChangeBottomMenu = (event, newValue) => {
     setValue(newValue);
+    console.log(newValue);
     if (newValue === "location") {
       handleMapOpen();
       DG.then(function () {
@@ -170,8 +171,6 @@ function App() {
       setValue("");
     }, 500);
   };
-
-  // const [isPortrait, setIsPortrait] = useState(screenHeight > screenWidth);
 
   //проявляет картинку второго слоя
   const handleMouseOver = (prop) => {
@@ -255,52 +254,6 @@ function App() {
       d3.select("#letters").selectAll("polygon").style("fill", "#f8f8f8");
     pageRef && d3.select("#pen").selectAll("path").style("fill", "#0088d1");
 
-    //   let screenWidth = screen.width;
-    // let screenHeight = screen.height;
-
-    // const updateOrientation = () => {
-    //   document.documentElement.style.setProperty("--vh", `${vh}px`);
-    //   document.documentElement.style.setProperty("--vw", `${vw}px`);
-    //   setIsPortrait(vh > vw);
-    // };
-
-    // window.addEventListener("resize", updateOrientation);
-
-    // function hideAddressBar() {
-    //   if (!window.location.hash) {
-    //     if (document.height < window.outerHeight) {
-    //       document.body.style.height = window.outerHeight + 50 + "px";
-    //     }
-
-    //     setTimeout(function () {
-    //       window.scrollTo(0, 1);
-    //     }, 50);
-    //   }
-    // }
-
-    // window.addEventListener("load", function () {
-    //   if (!window.scrollY) {
-    //     hideAddressBar();
-    //   }
-    // });
-
-    // window.addEventListener("orientationchange", hideAddressBar);
-
-    // return () => {
-    //   window.removeEventListener("resize", updateOrientation);
-    //   window.removeEventListener("orientationchange", hideAddressBar);
-    // };
-
-    // const fixedBlock = pageRef.current;
-    // if (fixedBlock) {
-    //   const preventScroll = (e) => e.preventDefault();
-    //   fixedBlock.addEventListener("wheel", preventScroll, { passive: false });
-
-    //   return () => {
-    //     fixedBlock.removeEventListener("wheel", preventScroll);
-    //   };
-    // }
-
     const handlePopState = (event) => {
       // Если пользователь нажал кнопку "Назад" и showBlogIndustry открыто, выполняем handleBlogClose
       if (event.state && event.state.showBlogIndustry) {
@@ -314,21 +267,13 @@ function App() {
     };
   }, [mapRef, showBlogIndustry, vh, vw]);
 
-  // const toggleDrawer = (anchor, open) => (event) => {
-  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-  //     return;
-  //   }
-
-  //   setState({ ...state, [anchor]: open });
-  // };
-
   return (
     <>
       <div
         className='page'
         ref={pageRef}
         style={{
-          position: "fixed",
+          // position: "fixed",
           overflow: "hidden",
         }}
       >
@@ -485,7 +430,7 @@ function App() {
             <ul className='buttons'>
               <li
                 className='btn0 neon_container'
-                onClick={() => handleChangeBottomMenu("location")}
+                onClick={(e) => handleChangeBottomMenu(e, "location")}
               >
                 <a className='link-text' href='#0'>
                   Где находимся
@@ -496,7 +441,10 @@ function App() {
                 <span></span>
               </li>
 
-              <li className='btn0 neon_container' onClick={handlePriceOpen}>
+              <li
+                className='btn0 neon_container'
+                onClick={(e) => handleChangeBottomMenu(e, "price")}
+              >
                 <a className='link-text' href='#0'>
                   Цены
                 </a>
@@ -505,7 +453,10 @@ function App() {
                 <span></span>
                 <span></span>
               </li>
-              <li className='btn0 neon_container' onClick={handleAboutOpen}>
+              <li
+                className='btn0 neon_container'
+                onClick={(e) => handleChangeBottomMenu(e, "contacts")}
+              >
                 <a className='link-text' href='#0'>
                   Контакты
                 </a>
