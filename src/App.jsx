@@ -467,13 +467,29 @@ function App() {
               </li>
             </ul>
           </div>
-          <ul className='wrapper'>
-            <li className='icon fab fa-vk'></li>
-            <li className='icon fab fa-telegram'></li>
-            <li className='icon fab fa-instagram'></li>
-            <li className='icon fab fa-youtube'></li>
-            <li className='icon fab fa-whatsapp'></li>
-          </ul>
+          <div className='wrapper'>
+            <a
+              href='https://vk.com/id146329544'
+              className='icon fab fa-vk icon_blue'
+            ></a>
+            <a
+              href='https://t.me/Desirous112'
+              className='icon fab fa-telegram icon_lightblue'
+            ></a>
+            {/* <a
+              href='https://instagram.com'
+              className='icon fab fa-instagram'
+            ></a> */}
+            {/* <a href='https://youtube.com' className='icon fab fa-youtube'></a> */}
+            <a
+              href='https://wa.me/79132401800?text=Здравствуйте'
+              className='icon fab fa-whatsapp icon_green'
+            ></a>
+            <a
+              href='mailto:pbteh@mail.ru'
+              className='icon fa fa-at icon_blue '
+            ></a>
+          </div>
         </header>
         <main className='page-content'>
           {elems.map((el, index) => {

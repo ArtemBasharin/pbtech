@@ -23,10 +23,10 @@ ul {
   padding: 0;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: inherit;
-}
+} */
 
 .page {
   max-width: 1600px;
