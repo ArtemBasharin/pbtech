@@ -68,4 +68,7 @@ ul {
     overflow-x: hidden;
     margin: 0 auto;
   }
+  .modal-modal-description {
+    font-size: 0.8rem;
+  }
 }

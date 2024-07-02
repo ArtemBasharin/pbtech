@@ -106,13 +106,14 @@ const stylePopup = {
   top: 0,
   bottom: 0,
   margin: "auto",
-  width: 400,
+  width: 450,
   height: "min-content",
   bgcolor: "background.paper",
   border: "1px solid #000",
   borderRadius: 2,
   boxShadow: 24,
   p: 2,
+  fontSize: 16,
 };
 
 const styleCard_portrait = (url) => {
@@ -134,13 +135,19 @@ function App() {
     console.log(newValue);
     if (newValue === "location") {
       handleMapOpen();
+      var options = {
+        vectors: ["LINESTRING(83.774693 53.341823,83.774853 53.341877)"],
+      };
+
       DG.then(function () {
         let map;
         map = DG.map("map", {
           center: [53.34172210833575, 83.77499609815216],
           zoom: 17,
         });
+
         DG.marker([53.34172210833575, 83.77499609815216]).addTo(map);
+        DG.entrance(options).addTo(map).show(true);
       });
     }
     if (newValue === "contacts") {
@@ -598,7 +605,13 @@ function App() {
         aria-describedby='modal-modal-description'
         sx={{ marginLeft: "auto", marginRight: "auto" }}
       >
-        <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
+        <Box
+          sx={
+            isPortrait
+              ? { ...stylePopup, width: "95%", fontSize: 12 }
+              : stylePopup
+          }
+        >
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Предварительная стоимость услуг:
           </Typography>
@@ -609,7 +622,7 @@ function App() {
                   <ListItemIcon>
                     <DrawIcon />
                   </ListItemIcon>
-                  <ListItemText primary='Проект системы водоснабжения' />
+                  <ListItemText primary='Эскизный проект с прохождением градостроительного совета - от 150 тыс.руб.' />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
@@ -617,7 +630,7 @@ function App() {
                   <ListItemIcon>
                     <DrawIcon />
                   </ListItemIcon>
-                  <ListItemText primary='Проект системы электроснабжения' />
+                  <ListItemText primary='Проектная документации в соответствии со ст. 51 Градостроительного кодекса РФ - от 300 тыс.руб.' />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
@@ -625,7 +638,7 @@ function App() {
                   <ListItemIcon>
                     <DrawIcon />
                   </ListItemIcon>
-                  <ListItemText primary='Проект системы канализации' />
+                  <ListItemText primary='Проектная документации для прохождения экспертизы и получения разрешения от 1000 руб./м2 общей площади объекта' />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
@@ -633,7 +646,15 @@ function App() {
                   <ListItemIcon>
                     <DrawIcon />
                   </ListItemIcon>
-                  <ListItemText primary='Проект системы вентиляции' />
+                  <ListItemText primary='Рабочая документация: от 600р/м2 общей площади на объект с подготовленной проектной документацией; от 1000р/м2 при отсутствии готовой проектной документации' />
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <DrawIcon />
+                  </ListItemIcon>
+                  <ListItemText primary='Наружные сети в зависимости от вида сетей, сложности прокладки и протяженности от 100 руб./м.п. сети' />
                 </ListItemButton>
               </ListItem>
             </List>
@@ -648,24 +669,30 @@ function App() {
         aria-describedby='modal-modal-description'
         sx={{ marginLeft: "auto", marginRight: "auto" }}
       >
-        <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
+        <Box
+          sx={
+            isPortrait
+              ? { ...stylePopup, width: "95%", fontSize: 10 }
+              : stylePopup
+          }
+        >
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Контакты и юридическая информация
           </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+          <Typography id='modal-modal-description' sx={{ mt: 1 }}>
             ООО &quot;Проектное бюро технология&quot;
           </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            ИНН 99999999999; ОГРН 999999999999
+          <Typography id='modal-modal-description' sx={{ mt: 1 }}>
+            Почтовый адрес: 656015, г. Барнаул, пр.Ленина, 83-23
           </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            656000, г. Барнаул, ул. Геблера 28
+          <Typography id='modal-modal-description' sx={{ mt: 1 }}>
+            Фактический адрес: 656049, г. Барнаул, ул. Геблера 28
           </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            Телефон: +7 999 999 99 99, +7 385 2 99 99 99
+          <Typography id='modal-modal-description' sx={{ mt: 1 }}>
+            Телефон: +7-913-240-1800
           </Typography>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-            mailto: xxxyyyzzz@ya.ru
+          <Typography id='modal-modal-description' sx={{ mt: 1 }}>
+            <a href='mailto:pbteh@mail.ru'>pbteh@mail.ru</a>
           </Typography>
         </Box>
       </Modal>
