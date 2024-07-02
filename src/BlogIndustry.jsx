@@ -40,8 +40,7 @@ const ScrollMagicComponent = () => {
         offset: 0,
       })
         .setTween(tl)
-        .addTo(controller)
-        .addIndicators();
+        .addTo(controller);
     });
 
     return () => controller.destroy(true);
@@ -100,7 +99,7 @@ const ScrollMagicComponent = () => {
                 thats the way we all became the Brady Bunch.
               </p>
               <a href='#' className='btn btn--ghost'>
-                Позвонить
+                Подробнее
               </a>
             </article>
           </div>
