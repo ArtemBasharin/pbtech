@@ -4,11 +4,11 @@ import {
   Box,
   Drawer,
   Fab,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
+  // List,
+  // ListItem,
+  // ListItemButton,
+  // ListItemIcon,
+  // ListItemText,
   Modal,
   Typography,
 } from "@mui/material";
@@ -18,7 +18,7 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import BusinessTwoToneIcon from "@mui/icons-material/BusinessTwoTone";
 import LocationOnTwoToneIcon from "@mui/icons-material/LocationOnTwoTone";
-import DrawIcon from "@mui/icons-material/Draw";
+// import DrawIcon from "@mui/icons-material/Draw";
 import NavigationIcon from "@mui/icons-material/Navigation";
 
 import * as d3 from "d3";
@@ -616,50 +616,29 @@ function App() {
           <Typography id='modal-modal-title' variant='h6' component='h2'>
             Предварительная стоимость услуг:
           </Typography>
-          <nav aria-label='main mailbox folders'>
-            <List>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <DrawIcon />
-                  </ListItemIcon>
-                  <ListItemText primary='Эскизный проект с прохождением градостроительного совета - от 150 тыс.руб.' />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <DrawIcon />
-                  </ListItemIcon>
-                  <ListItemText primary='Проектная документации в соответствии со ст. 51 Градостроительного кодекса РФ - от 300 тыс.руб.' />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <DrawIcon />
-                  </ListItemIcon>
-                  <ListItemText primary='Проектная документации для прохождения экспертизы и получения разрешения от 1000 руб./м2 общей площади объекта' />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <DrawIcon />
-                  </ListItemIcon>
-                  <ListItemText primary='Рабочая документация: от 600р/м2 общей площади на объект с подготовленной проектной документацией; от 1000р/м2 при отсутствии готовой проектной документации' />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <DrawIcon />
-                  </ListItemIcon>
-                  <ListItemText primary='Наружные сети в зависимости от вида сетей, сложности прокладки и протяженности от 100 руб./м.п. сети' />
-                </ListItemButton>
-              </ListItem>
-            </List>
-          </nav>
+          <ul>
+            <li className='list_item'>
+              Эскизный проект с прохождением градостроительного совета - от 150
+              тыс.руб.
+            </li>
+            <li className='list_item'>
+              Проектная документации в соответствии со ст. 51 Градостроительного
+              кодекса РФ - от 300 тыс.руб.
+            </li>
+            <li className='list_item'>
+              Рабочая документация: от 600р/м2 общей площади на объект с
+              подготовленной проектной документацией; от 1000р/м2 при отсутствии
+              готовой проектной документации
+            </li>
+            <li className='list_item'>
+              Наружные сети в зависимости от вида сетей, сложности прокладки и
+              протяженности от 100 руб./м.п. сети
+            </li>
+            <li className='list_item'>
+              Проектная документации для прохождения экспертизы и получения
+              разрешения от 1000р/м2 общей площади объекта
+            </li>
+          </ul>
         </Box>
       </Modal>
 
