@@ -137,6 +137,7 @@ function App() {
       handleMapOpen();
       var options = {
         vectors: ["LINESTRING(83.774693 53.341823,83.774853 53.341877)"],
+        fillColor: "#ff002b",
       };
 
       DG.then(function () {

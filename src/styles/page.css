@@ -51,7 +51,7 @@ ul {
   gap: 10px;
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (orientation: portrait) {
   .page-content {
     flex-direction: column;
   }
@@ -67,8 +67,5 @@ ul {
     overflow-y: hidden;
     overflow-x: hidden;
     margin: 0 auto;
-  }
-  .modal-modal-description {
-    font-size: 0.8rem;
   }
 }
