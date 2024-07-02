@@ -606,14 +606,8 @@ function App() {
         aria-describedby='modal-modal-description'
         sx={{ marginLeft: "auto", marginRight: "auto" }}
       >
-        <Box
-          sx={
-            isPortrait
-              ? { ...stylePopup, width: "95%", fontSize: 12 }
-              : stylePopup
-          }
-        >
-          <Typography id='modal-modal-title' variant='h6' component='h2'>
+        <Box sx={isPortrait ? { ...stylePopup, width: "95%" } : stylePopup}>
+          <Typography id='modal-modal-title' variant='h6' component='h3'>
             Предварительная стоимость услуг:
           </Typography>
           <ul>
